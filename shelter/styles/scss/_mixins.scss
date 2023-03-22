@@ -1,0 +1,27 @@
+@mixin text{
+	font-size: 15px;
+	line-height: 24px;
+	font-weight: 400px;
+}
+
+@mixin title{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 44px;
+    line-height: 57px;
+    font-weight: 400;
+    color: $text-color-text;
+    margin: 0;
+}
+
+@mixin button{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: 0.06em;
+    color: $text-color-dark;
+    padding: 15px 45px;
+    background-color: $text-color-secondary;
+    border-radius: 100px;
+    border: none;
+}

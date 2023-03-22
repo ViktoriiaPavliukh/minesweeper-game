@@ -1,4 +1,5 @@
 @import "_variables";
+@import "_mixins";
 
 
 * {
@@ -72,6 +73,67 @@ body{
 }
 
 .offer{
+    padding-top: 90px;
     display: flex;
     justify-content: space-between;
+
+
+
+    &__text{
+        padding-top: 163px;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+    }
+
+    &__title{
+        @include title;
+    }
+
+    &__subtitle{
+        @include text;
+        margin: 0;
+        padding-top: 42px;
+        color: $text-color-primary;
+    }
+    &__image{
+        max-width: 100%;
+        padding-left: 42px
+    }
+
+    &__button{
+        @include button;
+        width: fit-content;
+        margin-top: 42px;
+    }
+}
+
+.about{
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+    padding-bottom: 100px;
+
+    &__image{
+        padding-left: 175px;
+    }
+
+    &__text{
+        padding-left: 120px;
+    }
+
+    &__title{
+        @include title;
+        padding-top: 14px;
+        color: $text-color-title;
+        letter-spacing: 0.06em;
+    }
+
+    &__content{
+        @include text;
+        max-width: 430px;
+        margin: 0;
+        padding-top: 25px;
+        color: $text-color-content;
+    }
 }
