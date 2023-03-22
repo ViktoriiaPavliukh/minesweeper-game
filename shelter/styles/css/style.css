@@ -1,3 +1,71 @@
+* {
+  box-sizing: border-box;
+}
 
+body {
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.background {
+  background: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+}
+
+.header {
+  color: #CDCDCD;
+}
+.header__navigation {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.header__logo {
+  display: flex;
+  flex-direction: column;
+}
+.header__logo-title {
+  font-size: 32px;
+  line-height: 32.5px;
+  letter-spacing: 0.06em;
+  font-family: Georgia, sans-serif;
+  color: #F1CDB3;
+}
+.header__logo-subtitle {
+  padding-top: 10px;
+  font-size: 13px;
+  color: #FFFFFF;
+  line-height: 15px;
+  letter-spacing: 0.1em;
+  padding-left: 4px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  line-height: 24px;
+  font-style: normal;
+  font-family: Arial, serif;
+  font-weight: 400;
+}
+.nav__item--pets {
+  margin-left: 35px;
+  margin-right: 35px;
+}
+.nav__item--contacts {
+  margin-left: 35px;
+}
+
+.offer {
+  display: flex;
+  justify-content: space-between;
+}
 
 /*# sourceMappingURL=style.css.map */
