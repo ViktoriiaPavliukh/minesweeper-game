@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-  max-width: 1920px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 40px;
 }
@@ -75,7 +75,7 @@ body {
   justify-content: left;
 }
 .offer__title {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Georgia;
   font-size: 44px;
   line-height: 57px;
   font-weight: 400;
@@ -95,7 +95,7 @@ body {
   padding-left: 42px;
 }
 .offer__button {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Georgia;
   font-weight: 400;
   font-size: 17px;
   line-height: 22px;
@@ -122,7 +122,7 @@ body {
   padding-left: 120px;
 }
 .about__title {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Georgia;
   font-size: 44px;
   line-height: 57px;
   font-weight: 400;
@@ -140,6 +140,127 @@ body {
   margin: 0;
   padding-top: 25px;
   color: #4C4C4C;
+}
+
+.slider {
+  background-color: #F6F6F6;
+  padding-bottom: 100px;
+}
+.slider__title {
+  font-family: Georgia;
+  font-size: 35px;
+  line-height: 46px;
+  font-weight: 400;
+  color: #545454;
+  letter-spacing: 0.06em;
+  text-align: center;
+  padding-top: 80px;
+  margin: 0;
+}
+.slider__button {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+  color: #292929;
+  padding: 15px 45px;
+  background-color: #F1CDB3;
+  border-radius: 100px;
+  border: none;
+  display: flex;
+  margin: 0 auto;
+}
+
+.cards {
+  padding-top: 60px;
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: center;
+}
+.cards__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 270px;
+  border-radius: 9px;
+  background-color: #FAFAFA;
+}
+.cards__item--centered {
+  margin: 0 90px;
+}
+.cards__title {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: 400;
+  color: #545454;
+  letter-spacing: 0.06em;
+  padding-top: 30px;
+}
+.cards__button {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+  color: #292929;
+  padding: 15px 45px;
+  background-color: #F1CDB3;
+  border-radius: 100px;
+  border: none;
+  background-color: transparent;
+  border: 1px solid #F1CDB3;
+  margin: 30px 0;
+}
+
+.help {
+  padding-bottom: 100px;
+}
+.help__title {
+  font-family: Georgia;
+  font-size: 35px;
+  line-height: 46px;
+  font-weight: 400;
+  color: #545454;
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin: 0;
+  padding-top: 80px;
+  margin-bottom: 5px;
+}
+.help__items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.help__item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 55px;
+  margin-left: 120px;
+  width: fit-content;
+}
+.help__item--start {
+  margin-left: 87px;
+}
+.help__item--vitamins {
+  margin-left: 185px;
+}
+.help__image {
+  margin: 0 auto;
+}
+.help__description {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+  color: #545454;
+  text-align: center;
+  margin: 0;
+  padding-top: 30px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -5,7 +5,7 @@
 }
 
 @mixin title{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia;
     font-size: 44px;
     line-height: 57px;
     font-weight: 400;
@@ -13,15 +13,34 @@
     margin: 0;
 }
 
+@mixin heading{
+    font-family: Georgia;
+    font-size: 35px;
+    line-height: 46px;
+    font-weight: 400;
+    color: $text-color-title;
+    letter-spacing: 0.06em;
+}
+
 @mixin button{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia;
     font-weight: 400;
     font-size: 17px;
     line-height: 22px;
     letter-spacing: 0.06em;
     color: $text-color-dark;
     padding: 15px 45px;
-    background-color: $text-color-secondary;
+    background-color: $bg-color-button;
     border-radius: 100px;
     border: none;
+}
+
+@mixin text-description{
+    font-family: Georgia;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.06em;
+    color: $text-color-title;
+    text-align: center;
 }
