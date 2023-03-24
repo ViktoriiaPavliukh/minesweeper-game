@@ -263,4 +263,201 @@ body {
   padding-top: 30px;
 }
 
+.payment {
+  background-color: #F6F6F6;
+  padding-bottom: 100px;
+}
+
+.donation {
+  padding-top: 91px;
+  display: flex;
+  justify-content: center;
+}
+.donation__image {
+  max-width: 505px;
+}
+.donation__action {
+  margin-left: 30px;
+}
+.donation__title {
+  font-family: Georgia;
+  font-size: 35px;
+  line-height: 46px;
+  font-weight: 400;
+  color: #545454;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+.donation__subtitle {
+  margin: 0;
+  padding: 20px 0;
+  font-size: 15px;
+  font-family: Georgia;
+  line-height: 17px;
+  font-weight: 400;
+  color: #545454;
+  letter-spacing: 0.06em;
+}
+.donation__form {
+  display: block;
+  position: relative;
+  max-width: 349px;
+  background-color: #F1CDB3;
+  border-radius: 9px;
+  padding: 10px 15px 10px 60px;
+  margin: 0;
+}
+.donation__form:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 23px;
+  background-image: url(../../assets/icons/credit-card.svg);
+  background-size: contain;
+  top: 10px;
+  left: 15px;
+}
+.donation__input {
+  font-family: Georgia;
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: 400;
+  background-color: transparent;
+  border: none;
+  letter-spacing: 0.06em;
+  outline: none;
+  width: 278px;
+  color: #545454;
+}
+.donation__input::placeholder {
+  color: #545454;
+}
+.donation__text {
+  font-family: Arial, sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #B2B2B2;
+  max-width: 380px;
+  margin: 0;
+  padding-top: 20px;
+}
+
+.footer {
+  background-image: url(../../assets/images/footer-gradient-background.svg);
+  background-size: cover;
+}
+
+.contacts {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+.contacts__item {
+  max-width: 279px;
+  display: flex;
+  flex-direction: column;
+}
+.contacts__item--center {
+  margin: 0 160px;
+  max-width: 302px;
+}
+.contacts__title {
+  font-family: Georgia;
+  font-size: 35px;
+  line-height: 46px;
+  font-weight: 400;
+  color: #545454;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+  margin: 0;
+}
+.contacts__mail, .contacts__phone, .contacts__address {
+  display: block;
+  position: relative;
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+  color: #545454;
+  text-align: center;
+  font-style: normal;
+  padding-top: 43px;
+  padding-left: 60px;
+  text-align: left;
+  color: #F1CDB3;
+  text-decoration: none;
+}
+.contacts__mail:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 26px;
+  background-image: url(../../assets/icons/mail.svg);
+  background-size: contain;
+  bottom: 0;
+  left: 0;
+}
+.contacts__phone {
+  padding-top: 49px;
+}
+.contacts__phone:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 26px;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  background-image: url(../../assets/icons/phone.svg);
+  height: 32px;
+}
+.contacts__address {
+  padding-left: 42px;
+}
+.contacts__address--top {
+  padding-top: 34px;
+}
+.contacts__address--top:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 26px;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  background-image: url(../../assets/icons/pin.svg);
+  width: 22px;
+  height: 32px;
+  bottom: 8px;
+}
+.contacts__address--bottom {
+  padding-top: 37px;
+}
+.contacts__address--bottom:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 26px;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  background-image: url(../../assets/icons/pin.svg);
+  width: 22px;
+  height: 32px;
+}
+.contacts__image {
+  background-image: url(../../assets/images/footer-puppy.svg);
+  background-size: cover;
+  width: 300px;
+  height: 310px;
+}
+
 /*# sourceMappingURL=style.css.map */

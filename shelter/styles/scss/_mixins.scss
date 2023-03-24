@@ -44,3 +44,14 @@
     color: $text-color-title;
     text-align: center;
 }
+
+@mixin icon{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 26px;
+    background-size: cover;
+    bottom: 0;
+    left: 0;  
+}
