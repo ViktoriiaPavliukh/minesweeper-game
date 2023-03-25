@@ -19,6 +19,7 @@ body {
 
 .header {
   color: #CDCDCD;
+  padding-bottom: 30px;
 }
 .header__navigation {
   padding-top: 30px;
@@ -26,15 +27,20 @@ body {
   justify-content: space-between;
 }
 .header__logo {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
 }
 .header__logo-title {
   font-size: 32px;
-  line-height: 32.5px;
+  line-height: 33px;
   letter-spacing: 0.06em;
-  font-family: Georgia, sans-serif;
+  font-family: Georgia;
   color: #F1CDB3;
+}
+.header__logo-title--dark {
+  color: #545454;
 }
 .header__logo-subtitle {
   padding-top: 10px;
@@ -44,6 +50,12 @@ body {
   letter-spacing: 0.1em;
   padding-left: 4px;
 }
+.header__logo-subtitle--dark {
+  color: #292929;
+}
+.header__nav--light {
+  color: #545454;
+}
 
 .nav {
   display: flex;
@@ -52,8 +64,22 @@ body {
   font-size: 15px;
   line-height: 24px;
   font-style: normal;
-  font-family: Arial, serif;
+  font-family: Arial;
   font-weight: 400;
+}
+.nav__item {
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+.nav__item:hover {
+  border-bottom: 3px solid #F1CDB3;
+}
+.nav__item:visited {
+  color: inherit;
+}
+.nav__item:active {
+  border-bottom: 3px solid #F1CDB3;
 }
 .nav__item--pets {
   margin-left: 35px;
@@ -64,7 +90,7 @@ body {
 }
 
 .offer {
-  padding-top: 90px;
+  padding-top: 60px;
   display: flex;
   justify-content: space-between;
 }
@@ -190,7 +216,7 @@ body {
   margin: 0 90px;
 }
 .cards__title {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Georgia;
   font-size: 20px;
   line-height: 23px;
   font-weight: 400;
@@ -458,6 +484,120 @@ body {
   background-size: cover;
   width: 300px;
   height: 310px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.our-friends {
+  background-color: #F6F6F6;
+}
+
+.friends {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 100px;
+}
+.friends__title {
+  font-family: Georgia;
+  font-size: 35px;
+  line-height: 46px;
+  font-weight: 400;
+  color: #545454;
+  letter-spacing: 0.06em;
+  padding-top: 80px;
+  margin: 0;
+  text-align: center;
+}
+.friends__cards {
+  display: flex;
+  padding-top: 30px;
+  flex-wrap: wrap;
+}
+.friends__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 270px;
+  border-radius: 9px;
+  background-color: #FAFAFA;
+  margin-left: 40px;
+  margin-top: 30px;
+}
+.friends__item--katrine, .friends__item--timmy {
+  margin-left: 0;
+}
+.friends__subtitle {
+  font-family: Georgia;
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: 400;
+  color: #545454;
+  letter-spacing: 0.06em;
+  padding-top: 30px;
+}
+.friends__button {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+  color: #292929;
+  padding: 15px 45px;
+  background-color: #F1CDB3;
+  border-radius: 100px;
+  border: none;
+  background-color: transparent;
+  border: 1px solid #F1CDB3;
+  margin: 30px 0;
+}
+.friends__pagination {
+  padding-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+.friends__control {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+  color: #545454;
+  text-align: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background-color: transparent;
+  margin-left: 20px;
+  color: #292929;
+}
+.friends__control--active {
+  border-color: #F1CDB3;
+  background-color: #F1CDB3;
+}
+.friends__control--first, .friends__control--back {
+  border-color: #CDCDCD;
+  color: #CDCDCD;
+}
+.friends__control--first {
+  margin-left: 0;
+}
+.friends__control--ahead, .friends__control--last {
+  border-color: #F1CDB3;
 }
 
 /*# sourceMappingURL=style.css.map */

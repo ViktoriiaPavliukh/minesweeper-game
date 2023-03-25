@@ -1,0 +1,87 @@
+.header{
+    color: $text-color-primary;
+    padding-bottom: 30px;
+
+    &__navigation{
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__logo{
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+    }
+
+    &__logo-title{
+       font-size: 32px;
+       line-height: 33px;
+       letter-spacing: 0.06em;
+       font-family: Georgia;
+       color: $text-color-secondary;
+
+       &--dark{
+        color: $text-color-title;
+       }
+    }
+
+    &__logo-subtitle{
+        padding-top: 10px;
+        font-size: 13px;
+        color: $text-color-text;
+        line-height: 15px;
+        letter-spacing: 0.1em;
+        padding-left: 4px;
+
+        &--dark{
+            color: $text-color-dark;
+        }
+    }
+
+    &__nav{
+
+        &--light{
+            color: $text-color-title;
+        }
+    }
+}
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    line-height: 24px;
+    font-style: normal;
+    font-family: Arial;
+    font-weight: 400;
+
+
+    &__item{
+        cursor: pointer;
+        text-decoration: none;
+        border-bottom: 3px solid transparent;
+
+        &:hover{
+            border-bottom: 3px solid $bg-color-button;
+        }
+
+        &:visited{
+            color: inherit;
+        }
+
+        &:active{
+            border-bottom: 3px solid $bg-color-button;
+        }
+
+
+        &--pets{
+            margin-left: 35px;
+            margin-right: 35px;
+        }
+        &--contacts{
+            margin-left: 35px;
+        }
+    }
+}
