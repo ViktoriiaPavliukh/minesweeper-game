@@ -1,13 +1,10 @@
-@import "_variables";
-@import "_mixins";
-
 
 * {
   box-sizing: border-box;
 }
 
 body{
-    font-family: Arial, sans-serif;
+    font-family: "Arial";
     font-weight: 400;
 }
 
@@ -25,7 +22,6 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-bottom: 100px;
 
     &__title{
         @include heading;
@@ -49,6 +45,12 @@ body{
         background-color: #FAFAFA;
         margin-left: 40px;
         margin-top: 30px;
+        cursor: pointer;
+        transition: all 1s ease-in-out;
+
+       &:hover{
+           background-color: #FFFFFF;
+       } 
 
        &--katrine, &--timmy{
            margin-left: 0;
@@ -56,7 +58,7 @@ body{
     }
 
     &__subtitle{
-        font-family: Georgia;
+        font-family: "Georgia";
         font-size: 20px;
         line-height: 23px;
         font-weight: 400;
@@ -70,6 +72,11 @@ body{
         background-color: transparent;
         border: 1px solid $bg-color-button;
         margin: 30px 0;
+
+        &:hover{
+            background-color: #FDDCC4;
+            border-color: #FDDCC4;
+        }
     }
 
     &__pagination{
@@ -87,6 +94,8 @@ body{
         background-color: transparent;
         margin-left: 20px;
         color: $text-color-dark;
+        cursor: pointer;
+        transition: all 1s ease-in-out;
 
         &--active{
             border-color: $bg-color-button;
@@ -105,5 +114,21 @@ body{
         &--ahead, &--last{
             border-color:$bg-color-button;
         }
+
+        &:hover{
+            background-color: #FDDCC4;
+            border-color: #FDDCC4;
+            color: $text-color-dark;
+        }
+    }
+}
+
+.disable{
+
+    &:hover{
+        border-color: #CDCDCD;
+        color: $text-color-primary;
+        background-color: transparent;
+        cursor: auto;
     }
 }

@@ -19,7 +19,7 @@
        font-size: 32px;
        line-height: 33px;
        letter-spacing: 0.06em;
-       font-family: Georgia;
+       font-family: "Georgia";
        color: $text-color-secondary;
 
        &--dark{
@@ -41,12 +41,53 @@
     }
 
     &__nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+        line-height: 24px;
+        font-style: normal;
+        font-family: "Arial";
+        font-weight: 400;
 
         &--light{
             color: $text-color-title;
         }
     }
+
+    &__item{
+        cursor: pointer;
+        text-decoration: none;
+        border-bottom: 3px solid transparent;
+        transition: all 1s ease-in-out;
+
+
+        &--pets-dark{
+            margin-left: 35px;
+            margin-right: 35px;  
+
+            &:visited{
+            color: $text-color-title;
+        }
+        }
+
+        &--contacts-dark{
+            margin-left: 35px;
+
+            &:visited{
+            color: $text-color-title;
+        }
+        }
+
+        &:visited{
+            color: $text-color-title;
+        }
+        &:hover{
+            color: #292929;
+        }
+    }
 }
+
 .nav{
     display: flex;
     justify-content: center;
@@ -54,7 +95,7 @@
     font-size: 15px;
     line-height: 24px;
     font-style: normal;
-    font-family: Arial;
+    font-family: "Arial";
     font-weight: 400;
 
 
@@ -62,26 +103,42 @@
         cursor: pointer;
         text-decoration: none;
         border-bottom: 3px solid transparent;
+        transition: all 1s ease-in-out;
 
-        &:hover{
-            border-bottom: 3px solid $bg-color-button;
+        &--pets-light{
+            margin-left: 35px;
+            margin-right: 35px;
+
+            &:visited{
+                color: $text-color-primary;
+            }
+
+        }
+        &--contacts-light{
+            margin-left: 35px;
+
+            &:visited{
+                color: $text-color-primary;
+            }
         }
 
         &:visited{
-            color: inherit;
+            color: $text-color-primary;
         }
 
-        &:active{
-            border-bottom: 3px solid $bg-color-button;
-        }
-
-
-        &--pets{
-            margin-left: 35px;
-            margin-right: 35px;
-        }
-        &--contacts{
-            margin-left: 35px;
+         &:hover{
+            color: #FAFAFA;
         }
     }
+}
+
+.active-light{
+    border-bottom: 3px solid $bg-color-button;
+    color: #FAFAFA;
+}
+
+.active-dark{
+    border-bottom: 3px solid $bg-color-button;
+    color: $text-color-dark;
+  
 }

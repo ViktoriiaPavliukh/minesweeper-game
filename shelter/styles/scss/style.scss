@@ -1,13 +1,15 @@
 @import "_variables";
 @import "_mixins";
+@import "_fonts";
 
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body{
-    font-family: Arial, sans-serif;
+    font-family: "Arial";
     font-weight: 400;
 }
 
@@ -18,7 +20,9 @@ body{
 }
 
 .background{
-     background: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+   background-image: url(../../assets/images/start-screen-gradient-background.png);
+   background-repeat: no-repeat;
+   background-size: cover;
 }
 
 @import "_header";
@@ -54,10 +58,14 @@ body{
         @include button;
         width: fit-content;
         margin-top: 42px;
+
+        &:hover{
+            background-color: #FDDCC4;
+        }
     }
 }
 
-.about{
+.info{
     display: flex;
     justify-content: center;
     padding-top: 80px;
@@ -86,7 +94,7 @@ body{
         color: $text-color-content;
     }
 }
-.slider{
+.our-friends{
     background-color: $bg-color-light;
     padding-bottom: 100px;
 
@@ -101,6 +109,11 @@ body{
         @include button;
         display: flex;
         margin: 0 auto;
+        text-decoration: none;
+
+        &:hover{
+            background-color: #FDDCC4;
+        }
     }
 }
 
@@ -117,6 +130,13 @@ body{
         max-width: 270px;
         border-radius: 9px;
         background-color: #FAFAFA;
+        cursor: pointer;
+        transition: all 1s ease-in-out;
+        
+
+        &:hover{
+            background-color: #FFFFFF;
+        }
 
         &--centered{
             margin: 0 90px;
@@ -124,7 +144,7 @@ body{
     }
 
     &__title{
-        font-family: Georgia;
+        font-family: "Georgia";
         font-size: 20px;
         line-height: 23px;
         font-weight: 400;
@@ -138,6 +158,11 @@ body{
         background-color: transparent;
         border: 1px solid $bg-color-button;
         margin: 30px 0;
+
+        &:hover{
+            background-color: #FDDCC4;
+            border-color: #FDDCC4;
+        }
     }
 }
 
@@ -184,7 +209,7 @@ body{
         padding-top: 30px;
     }
 }
-.payment{
+.in-addition{
     background-color: $bg-color-light;
     padding-bottom: 100px;
 }
@@ -211,7 +236,7 @@ body{
         margin: 0;
         padding: 20px 0;
         font-size: 15px;
-        font-family: Georgia;
+        font-family: "Georgia";
         line-height: 17px;
         font-weight: 400;
         color: $text-color-title;
@@ -221,11 +246,11 @@ body{
     &__form{
         display: block;
         position: relative;
-        max-width: 349px;
         background-color: $bg-color-button;
         border-radius: 9px;
-        padding: 10px 15px 10px 60px;
         margin: 0;
+        padding: 10px 0 10px 60px;
+        max-width: 349px;
      
 
         &:before{
@@ -241,8 +266,8 @@ body{
         }
     }
 
-    &__input{
-        font-family: Georgia;
+    &__link{
+        font-family: "Georgia";
         font-size: 20px;
         line-height: 23px;
         font-weight: 400;
@@ -250,16 +275,12 @@ body{
         border: none;
         letter-spacing: 0.06em;
         outline: none;
-        width: 278px;
         color: $text-color-title;
-
-        &::placeholder{
-            color: $text-color-title;
-        }
+        text-decoration: none;
     }
 
     &__text{
-        font-family: Arial, sans-serif;
+        font-family: "Arial";
         font-style: italic;
         font-weight: 400;
         font-size: 12px;
@@ -271,106 +292,8 @@ body{
 
     }
 }
-.footer{
-    background-image: url(../../assets/images/footer-gradient-background.svg);
-    background-size: cover;
-}
 
-.contacts{
-    display: flex;
-    justify-content: center;
-    padding-top: 40px;
-
-    &__item{
-        max-width: 279px;
-        display: flex;
-        flex-direction: column;
-
-        &--center{
-            margin: 0 160px;
-            max-width: 302px;
-        }
-    }
-
-    &__title{
-        @include heading;
-        color: $text-color-text;
-        margin: 0;
-    }
-
-    &__mail, &__phone, &__address{
-        display: block;
-        position: relative;
-        @include text-description;
-        font-style: normal;
-        padding-top: 43px;
-        padding-left: 60px;
-        text-align: left;
-        color: $text-color-secondary;
-        text-decoration: none;
-    }
-
-    &__mail{
-         &:before{
-            content: "";
-            display: block;
-            position: absolute;
-            width: 40px;
-            height: 26px;
-            background-image: url(../../assets/icons/mail.svg);
-            background-size: contain;
-            bottom: 0;
-            left: 0;
-        }
-    }
-
-    &__phone{
-        padding-top: 49px;
-
-        &:before{
-            @include icon;
-            background-image: url(../../assets/icons/phone.svg);
-            height: 32px;
-        }
-    }
-
-    &__address{
-        padding-left: 42px;
-
-
-        &--top{
-            padding-top: 34px;
-
-            &:before{
-                @include icon;
-                background-image: url(../../assets/icons/pin.svg);
-                width: 22px;
-                height: 32px;
-                bottom: 8px;
-        }
-        }
-        
-        &--bottom{
-            padding-top: 37px;
-
-            &:before{
-                @include icon;
-                background-image: url(../../assets/icons/pin.svg);
-                width: 22px;
-                height: 32px;
-            }
-        }
-
-    }
-
-    &__image{
-        background-image: url(../../assets/images/footer-puppy.svg);
-        background-size: cover;
-        width: 300px;
-        height: 310px;
-    }
-}
-
+@import "_footer";
 @import "_pets";
 
 
