@@ -92,6 +92,7 @@ body {
   text-decoration: none;
   border-bottom: 3px solid transparent;
   transition: all 1s ease-in-out;
+  color: #545454;
 }
 .header__item--pets-dark {
   margin-left: 35px;
@@ -128,6 +129,7 @@ body {
   text-decoration: none;
   border-bottom: 3px solid transparent;
   transition: all 1s ease-in-out;
+  color: #CDCDCD;
 }
 .nav__item--pets-light {
   margin-left: 35px;
