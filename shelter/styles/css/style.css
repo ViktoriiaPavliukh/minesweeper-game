@@ -293,6 +293,76 @@ body {
   display: flex;
   justify-content: center;
 }
+.cards__control {
+  display: block;
+  margin: auto;
+  position: relative;
+  font-family: "Georgia";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+  color: #545454;
+  text-align: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background-color: transparent;
+  color: #292929;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+  justify-content: center;
+  align-items: center;
+}
+.cards__control--left {
+  margin-left: 0;
+  margin-right: 50px;
+}
+.cards__control--left::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 26px;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  background-image: url(../../assets/icons/arrow-left.svg);
+  width: 14px;
+  height: 6px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.cards__control--right {
+  margin-left: 50px;
+  margin-right: 0;
+}
+.cards__control--right::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 26px;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  background-image: url(../../assets/icons/arrow-right.svg);
+  width: 14px;
+  height: 6px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.cards__control--left, .cards__control--right {
+  border-color: #F1CDB3;
+}
+.cards__control:hover {
+  background-color: #FDDCC4;
+  border-color: #FDDCC4;
+  color: #292929;
+}
 .cards__item {
   display: flex;
   flex-direction: column;

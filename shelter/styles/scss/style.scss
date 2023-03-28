@@ -123,6 +123,63 @@ body{
     display: flex;
     justify-content: center;
 
+    &__control{
+        display: block;
+        margin: auto;
+        position: relative;
+        @include text-description;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        background-color: transparent;
+        color: $text-color-dark;
+        cursor: pointer;
+        transition: all 1s ease-in-out;
+        justify-content: center;
+        align-items: center;
+
+        &--left{
+            margin-left: 0;
+            margin-right: 50px;
+
+            &::before{
+                @include icon;
+                background-image: url(../../assets/icons/arrow-left.svg);
+                width: 14px;
+                height: 6px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+         &--right{
+            margin-left: 50px;
+            margin-right: 0;
+
+
+            &::before{
+                @include icon;
+                background-image: url(../../assets/icons/arrow-right.svg);
+                width: 14px;
+                height: 6px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        &--left, &--right{
+            border-color:$bg-color-button;
+        }
+
+        &:hover{
+            background-color: #FDDCC4;
+            border-color: #FDDCC4;
+            color: $text-color-dark;
+        }
+    }    
     &__item{
         display: flex;
         flex-direction: column;
@@ -140,7 +197,7 @@ body{
 
         &--centered{
             margin: 0 90px;
-        }
+        }  
     }
 
     &__title{
