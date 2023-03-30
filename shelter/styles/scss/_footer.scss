@@ -38,6 +38,12 @@
     }
 
     &__mail{
+        transition: all 1s ease-in-out;
+
+        &:hover{
+            color: $text-color-primary;
+        }
+
          &:before{
             content: "";
             display: block;
@@ -53,6 +59,11 @@
 
     &__phone{
         padding-top: 49px;
+        transition: all 1s ease-in-out;
+
+        &:hover{
+            color: $text-color-primary;
+        }
 
         &:before{
             @include icon;
@@ -92,6 +103,11 @@
     &__link{
         text-decoration: none;
         color: $text-color-secondary;
+        transition: all 1s ease-in-out;
+
+        &:hover{
+            color: $text-color-primary;
+        }
     }
     &__image{
         background-image: url(../../assets/images/footer-puppy.svg);

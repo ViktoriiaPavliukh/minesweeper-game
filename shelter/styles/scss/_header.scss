@@ -137,10 +137,11 @@
 .active-light{
     border-bottom: 3px solid $bg-color-button;
     color: #FAFAFA;
+    cursor: default;
 }
 
 .active-dark{
     border-bottom: 3px solid $bg-color-button;
     color: $text-color-dark;
-  
+    cursor: default;
 }

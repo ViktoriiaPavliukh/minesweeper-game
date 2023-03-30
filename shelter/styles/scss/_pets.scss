@@ -52,6 +52,11 @@ body{
            background-color: #FFFFFF;
        } 
 
+        &:hover .friends__button{
+            background-color: #FDDCC4;
+            border-color: #FDDCC4;
+        }
+
        &--katrine, &--timmy{
            margin-left: 0;
        }
