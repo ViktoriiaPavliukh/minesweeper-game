@@ -71,19 +71,17 @@ body{
     padding-top: 80px;
     padding-bottom: 100px;
 
-    &__image{
-        padding-left: 175px;
-    }
 
     &__text{
         padding-left: 120px;
     }
 
     &__title{
-        @include title;
+        @include heading;
         padding-top: 14px;
         color: $text-color-title;
         letter-spacing: 0.06em;
+        margin: 0;
     }
 
     &__content{
@@ -138,10 +136,11 @@ body{
         transition: all 1s ease-in-out;
         justify-content: center;
         align-items: center;
+        margin-left: 114px;
 
         &--left{
             margin-left: 0;
-            margin-right: 50px;
+            padding-right: 50px;
 
             &::before{
                 @include icon;
@@ -195,6 +194,11 @@ body{
             background-color: #FFFFFF;
         }
 
+        &:hover .cards__button{
+            background-color: #FDDCC4;
+            border-color: #FDDCC4;
+        }
+
         &--centered{
             margin: 0 90px;
         }  
@@ -236,7 +240,7 @@ body{
 
     &__items{
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         flex-wrap: wrap;
     }
 
@@ -308,6 +312,13 @@ body{
         margin: 0;
         padding: 10px 0 10px 60px;
         max-width: 349px;
+        transition: all 1s ease-in-out;
+
+        &:hover{
+            background-color: #FDDCC4;
+            border-color: #FDDCC4;
+            color: $text-color-dark;
+        }
      
 
         &:before{
