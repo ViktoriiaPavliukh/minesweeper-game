@@ -32,18 +32,20 @@ body{
 
     &__cards{
         display: flex;
+        justify-content: center;
         padding-top: 30px;
         flex-wrap: wrap;
+        gap: 0 40px;
     }
 
     &__item{
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         align-items: center;
-        max-width: 270px;
+        width: 270px;
         border-radius: 9px;
         background-color: #FAFAFA;
-        margin-left: 40px;
         margin-top: 30px;
         cursor: pointer;
         transition: all 1s ease-in-out;
@@ -57,6 +59,12 @@ body{
             border-color: #FDDCC4;
         }
 
+        // &--jennifer{
+        //     margin-left: 30px;
+        //     margin-right: 30px;
+        // }
+
+        
        &--katrine, &--timmy{
            margin-left: 0;
        }
@@ -135,5 +143,26 @@ body{
         color: $text-color-primary;
         background-color: transparent;
         cursor: auto;
+    }
+}
+
+@media screen and (max-width: 1023px){
+    .container{
+        max-width: 768px;
+        padding: 0 30px;
+    }
+
+    .our-friends{
+        padding-bottom: 76px;
+    }
+
+    .friends{
+        &__cards{
+            padding-top: 0;
+        }
+        &__pagination{
+            padding-top: 40px;
+        }
+    
     }
 }

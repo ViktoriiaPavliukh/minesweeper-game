@@ -185,13 +185,13 @@ body {
 .offer__subtitle {
   font-size: 15px;
   line-height: 24px;
-  font-weight: 400px;
+  font-weight: 400;
   margin: 0;
   padding-top: 42px;
   color: #CDCDCD;
 }
 .offer__image {
-  max-width: 100%;
+  max-width: 698px;
   padding-left: 42px;
 }
 .offer__button {
@@ -241,7 +241,7 @@ body {
 .info__content {
   font-size: 15px;
   line-height: 24px;
-  font-weight: 400px;
+  font-weight: 400;
   max-width: 430px;
   margin: 0;
   padding-top: 25px;
@@ -314,11 +314,9 @@ body {
   transition: all 1s ease-in-out;
   justify-content: center;
   align-items: center;
-  margin-left: 114px;
 }
 .cards__control--left {
   margin-left: 0;
-  padding-right: 50px;
 }
 .cards__control--left::before {
   content: "";
@@ -337,7 +335,6 @@ body {
   transform: translate(-50%, -50%);
 }
 .cards__control--right {
-  margin-left: 50px;
   margin-right: 0;
 }
 .cards__control--right::before {
@@ -367,6 +364,7 @@ body {
 .cards__item {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   max-width: 270px;
   border-radius: 9px;
@@ -381,10 +379,17 @@ body {
   background-color: #FDDCC4;
   border-color: #FDDCC4;
 }
+.cards__item--first {
+  margin-left: 12px;
+}
 .cards__item--centered {
-  margin: 0 90px;
+  margin: 0 7.5%;
+}
+.cards__item--last {
+  margin-right: 12px;
 }
 .cards__title {
+  display: flex;
   font-family: "Georgia";
   font-size: 20px;
   line-height: 23px;
@@ -435,22 +440,23 @@ body {
 }
 .help__items {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
 }
 .help__item {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   padding-top: 55px;
-  margin-left: 120px;
+  margin-right: 120px;
   width: fit-content;
 }
-.help__item--start {
-  margin-left: 87px;
-}
 .help__item--vitamins {
-  margin-left: 185px;
+  margin-left: 120px;
+}
+.help__item--shampoos {
+  margin-right: 0;
 }
 .help__image {
   margin: 0 auto;
@@ -722,17 +728,19 @@ body {
 }
 .friends__cards {
   display: flex;
+  justify-content: center;
   padding-top: 30px;
   flex-wrap: wrap;
+  gap: 0 40px;
 }
 .friends__item {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  max-width: 270px;
+  width: 270px;
   border-radius: 9px;
   background-color: #FAFAFA;
-  margin-left: 40px;
   margin-top: 30px;
   cursor: pointer;
   transition: all 1s ease-in-out;
@@ -828,6 +836,106 @@ body {
   color: #CDCDCD;
   background-color: transparent;
   cursor: auto;
+}
+
+@media screen and (max-width: 1023px) {
+  .container {
+    max-width: 768px;
+    padding: 0 30px;
+  }
+  .our-friends {
+    padding-bottom: 76px;
+  }
+  .friends__cards {
+    padding-top: 0;
+  }
+  .friends__pagination {
+    padding-top: 40px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .container {
+    padding: 0 30px;
+  }
+  .offer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .offer__text {
+    padding-top: 0;
+  }
+  .offer__subtitle {
+    max-width: 460px;
+  }
+  .offer__button {
+    justify-items: center;
+    align-self: center;
+  }
+  .offer__image {
+    padding-top: 100px;
+    max-width: 569px;
+  }
+  .info {
+    flex-direction: column-reverse;
+  }
+  .info__text {
+    padding-left: 0;
+    align-self: center;
+  }
+  .info__title {
+    padding-top: 0;
+  }
+  .info__image {
+    max-width: 300px;
+    padding-top: 80px;
+    align-self: center;
+  }
+  .cards__item--centered {
+    margin: 0;
+    margin-left: 40px;
+  }
+  .cards__item--last {
+    display: none;
+  }
+  .cards__control--right {
+    margin-left: 12px;
+  }
+  .help {
+    padding-left: 39px;
+    padding-right: 39px;
+  }
+  .help__item {
+    width: 170px;
+    margin-right: 60px;
+    justify-content: space-between;
+  }
+  .help__item--vitamins {
+    margin-left: 60px;
+    margin-right: 0;
+  }
+  .help__item--toys, .help__item--shampoos, .help__item--sleeping {
+    margin-right: 0;
+  }
+  .donation {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .donation__image {
+    padding-top: 60px;
+  }
+  .contacts {
+    flex-wrap: wrap;
+  }
+  .contacts__item {
+    max-width: 300px;
+  }
+  .contacts__item--center {
+    margin: 0;
+    margin-left: 61px;
+  }
+  .contacts__image {
+    margin-top: 65px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
