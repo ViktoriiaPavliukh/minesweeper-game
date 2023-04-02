@@ -6,15 +6,18 @@
 .contacts{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     padding-top: 40px;
 
     &__item{
         max-width: 279px;
         display: flex;
         flex-direction: column;
+        padding-bottom: 60px;
 
         &--center{
-            margin: 0 160px;
+            // margin: 0 160px;
+            margin: 0 13%;
             max-width: 302px;
         }
     }
