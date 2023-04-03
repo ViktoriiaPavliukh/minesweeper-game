@@ -18,6 +18,9 @@
                         <span class="header__logo-title">Cozy House</span>
                         <span class="header__logo-subtitle">Shelter for pets in Boston</span>
                     </a>
+                    <div class="header__mob-menu">
+                        <button class="header__menu-button" type="submit"></button>
+                    </div>
                     <nav class="nav">
                         <a class="active-light nav__item nav__item--about-light">About the shelter</a>
                         <a href="pages/pets/index.html" class="nav__item nav__item--pets-light">Our pets</a>
@@ -56,23 +59,33 @@
         <div class="container">
             <h3 class="our-friends__title">Our friends who <br> are looking for a house</h3>
             <div class="cards"> 
-                <button class="cards__control cards__control--left"></button>
-                <div class="cards__item cards__item--first">
-                    <img src="assets/images/pets-katrine.svg" alt="Katrine">
-                    <span class="cards__title">Katrine</span>
-                    <button class="cards__button">Learn more</button>
+                <div class="cards__blocks">
+                     <div class="cards__column">
+                    <button class="cards__control cards__control--left"></button>
+                    </div>
+                    <div class="cards__item cards__item--first">
+                        <img src="assets/images/pets-katrine.svg" alt="Katrine" class="cards__image">
+                        <span class="cards__title">Katrine</span>
+                        <button class="cards__button">Learn more</button>
+                    </div>
+                    <div class="cards__item cards__item--centered">
+                        <img src="assets/images/pets-jennifer.svg" alt="Jennifer" class="cards__image">
+                        <span class="cards__title">Jennifer</span>
+                        <button class="cards__button">Learn more</button>
+                    </div>
+                    <div class="cards__item cards__item--last">
+                        <img src="assets/images/pets-woody.svg" alt="Woody" class="cards__image">
+                        <span class="cards__title">Woody</span>
+                        <button class="cards__button">Learn more</button>
+                    </div>
+                     <div class="cards__column cards__column--end">
+                    <button class="cards__control cards__control--right"></button>
                 </div>
-                <div class="cards__item cards__item--centered">
-                    <img src="assets/images/pets-jennifer.svg" alt="Jennifer">
-                    <span class="cards__title">Jennifer</span>
-                    <button class="cards__button">Learn more</button>
                 </div>
-                <div class="cards__item cards__item--last">
-                    <img src="assets/images/pets-woody.svg" alt="Woody">
-                    <span class="cards__title">Woody</span>
-                    <button class="cards__button">Learn more</button>
-                </div>
-                <button class="cards__control cards__control--right"></button>
+                <div class="cards__mob-control">
+                    <button class="cards__control cards__control--start"></button>
+                    <button class="cards__control cards__control--end"></button>
+                </div>    
             </div>  
             <a href="pages/pets/index.html" class="our-friends__button">Get to know the rest</a>  
         </div>
@@ -82,7 +95,7 @@
             <h3 class="help__title">How you can help <br> our shelter</h3>
             <div class="help__items">
                 <div class="help__item help__item--start ">
-                    <img class="help__image" src="assets/icons/Vector.svg" alt="vector">
+                    <img class="help__image help__image--start" src="assets/icons/Vector.svg" alt="vector">
                     <h4 class="help__description">Pet food</h4>
                 </div>
                 <div class="help__item help__item--transportation">
@@ -98,7 +111,7 @@
                     <h4 class="help__description">Bowls and cups</h4>
                 </div>
                 <div class="help__item help__item--shampoos">
-                    <img class="help__image" src="assets/icons/shampoos.svg" alt="shampoos">
+                    <img class="help__image help__image--shampoos" src="assets/icons/shampoos.svg" alt="shampoos">
                     <h4 class="help__description">Shampoos</h4>
                 </div>
                 <div class="help__item help__item--vitamins">
@@ -114,7 +127,7 @@
                     <h4 class="help__description">Collars / leashes</h4>
                 </div>
                 <div class="help__item help__item--sleeping">
-                    <img class="help__image" src="assets/icons/sleeping-area.svg" alt="sleeping">
+                    <img class="help__image help__image--sleeping" src="assets/icons/sleeping-area.svg" alt="sleeping">
                     <h4 class="help__description">Sleeping areas</h4>
                 </div>
             </div>
@@ -152,7 +165,7 @@
                         <a href="https://www.google.com/maps/place/%D0%AD%D0%BB%D1%82%D0%B5%D0%BC+%D0%9F%D0%B0%D1%80%D0%BA+%D0%AE%D0%B3/@51.4597232,-0.2153313,11z/data=!4m10!1m2!2m1!1s18+South+Park,+London!3m6!1s0x47d8a91594ab684d:0x6e5fc26f22667307!8m2!3d51.4555305!4d0.0668905!15sChUxOCBTb3V0aCBQYXJrLCBMb25kb26SAQRwYXJr4AEA!16s%2Fg%2F1th567md" target="_blank" class="contacts__link">18 South Park, London</a> 
                     </address>
                 </div>
-                <div class="contacts__image"></div>
+                <img src="./assets/images/footer-puppy.svg" alt="puppy" class="contacts__image">
             </div>
         </div>
     </footer>

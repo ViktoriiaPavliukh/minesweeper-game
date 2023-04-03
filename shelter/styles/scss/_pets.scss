@@ -28,6 +28,7 @@ body{
         padding-top: 80px;
         margin: 0;
         text-align: center;
+        margin-bottom: 30px;
     }
 
     &__cards{
@@ -148,17 +149,59 @@ body{
 
 @media screen and (max-width: 1023px){
 
-    .our-friends{
-        padding-bottom: 76px;
-    }
-
     .friends{
         &__cards{
             padding-top: 0;
         }
+
+        &__title{
+            margin-bottom: 0;
+        }
+
         &__pagination{
             padding-top: 40px;
         }
+
+        &__item{
+
+            &--scarlett, &--freddie{
+                display: none;
+            }
+        }
     
     }
+}
+
+@media screen and (max-width: 767px){
+    .header__nav{
+        display: none;
+    }
+
+    .our-friends{
+        padding-bottom: $padding-sm;
+    }
+
+    .friends{
+
+        &__title{
+            @include font-sm;
+            padding-top: $padding-sm;
+        }
+
+        &__cards{
+            padding-top: 12px;
+        }
+
+        &__control{
+            margin-left: 3%;
+        }
+
+        &__item{
+
+            &--sophia, &--timmy, &--charly, &--scarlett, &--freddie{
+                display: none;
+            }
+        }
+    }
+   
 }
