@@ -28,22 +28,25 @@ body{
         padding-top: 80px;
         margin: 0;
         text-align: center;
+        margin-bottom: 30px;
     }
 
     &__cards{
         display: flex;
+        justify-content: center;
         padding-top: 30px;
         flex-wrap: wrap;
+        gap: 0 40px;
     }
 
     &__item{
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         align-items: center;
-        max-width: 270px;
+        width: 270px;
         border-radius: 9px;
         background-color: #FAFAFA;
-        margin-left: 40px;
         margin-top: 30px;
         cursor: pointer;
         transition: all 1s ease-in-out;
@@ -57,6 +60,12 @@ body{
             border-color: #FDDCC4;
         }
 
+        // &--jennifer{
+        //     margin-left: 30px;
+        //     margin-right: 30px;
+        // }
+
+        
        &--katrine, &--timmy{
            margin-left: 0;
        }
@@ -136,4 +145,63 @@ body{
         background-color: transparent;
         cursor: auto;
     }
+}
+
+@media screen and (max-width: 1023px){
+
+    .friends{
+        &__cards{
+            padding-top: 0;
+        }
+
+        &__title{
+            margin-bottom: 0;
+        }
+
+        &__pagination{
+            padding-top: 40px;
+        }
+
+        &__item{
+
+            &--scarlett, &--freddie{
+                display: none;
+            }
+        }
+    
+    }
+}
+
+@media screen and (max-width: 767px){
+    .header__nav{
+        display: none;
+    }
+
+    .our-friends{
+        padding-bottom: $padding-sm;
+    }
+
+    .friends{
+
+        &__title{
+            @include font-sm;
+            padding-top: $padding-sm;
+        }
+
+        &__cards{
+            padding-top: 12px;
+        }
+
+        &__control{
+            margin-left: 3%;
+        }
+
+        &__item{
+
+            &--sophia, &--timmy, &--charly, &--scarlett, &--freddie{
+                display: none;
+            }
+        }
+    }
+   
 }

@@ -55,7 +55,7 @@ body {
 }
 .header__logo-title {
   font-size: 32px;
-  line-height: 33px;
+  line-height: 35px;
   letter-spacing: 0.06em;
   font-family: "Georgia";
   color: #F1CDB3;
@@ -73,6 +73,9 @@ body {
 }
 .header__logo-subtitle--dark {
   color: #292929;
+}
+.header__mob-menu {
+  display: none;
 }
 .header__nav {
   display: flex;
@@ -185,13 +188,13 @@ body {
 .offer__subtitle {
   font-size: 15px;
   line-height: 24px;
-  font-weight: 400px;
+  font-weight: 400;
   margin: 0;
   padding-top: 42px;
   color: #CDCDCD;
 }
 .offer__image {
-  max-width: 100%;
+  width: 86%;
   padding-left: 42px;
 }
 .offer__button {
@@ -241,7 +244,7 @@ body {
 .info__content {
   font-size: 15px;
   line-height: 24px;
-  font-weight: 400px;
+  font-weight: 400;
   max-width: 430px;
   margin: 0;
   padding-top: 25px;
@@ -250,7 +253,7 @@ body {
 
 .our-friends {
   background-color: #F6F6F6;
-  padding-bottom: 100px;
+  padding-bottom: 76px;
 }
 .our-friends__title {
   font-family: "Georgia";
@@ -282,6 +285,7 @@ body {
   display: flex;
   margin: 0 auto;
   text-decoration: none;
+  margin-bottom: 24px;
 }
 .our-friends__button:hover {
   background-color: #FDDCC4;
@@ -291,11 +295,21 @@ body {
   padding-top: 60px;
   margin-bottom: 60px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cards__column {
+  width: 115px;
+  display: flex;
+  align-items: center;
+}
+.cards__column--end {
+  justify-content: flex-end;
 }
 .cards__control {
   display: block;
-  margin: auto;
+  justify-self: flex-start;
+  align-self: center;
   position: relative;
   font-family: "Georgia";
   font-weight: 400;
@@ -314,13 +328,11 @@ body {
   transition: all 1s ease-in-out;
   justify-content: center;
   align-items: center;
-  margin-left: 114px;
 }
-.cards__control--left {
-  margin-left: 0;
-  padding-right: 50px;
+.cards__control--left, .cards__control--start {
+  left: 0;
 }
-.cards__control--left::before {
+.cards__control--left::before, .cards__control--start::before {
   content: "";
   display: block;
   position: absolute;
@@ -336,11 +348,10 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.cards__control--right {
-  margin-left: 50px;
-  margin-right: 0;
+.cards__control--right, .cards__control--end {
+  right: 0;
 }
-.cards__control--right::before {
+.cards__control--right::before, .cards__control--end::before {
   content: "";
   display: block;
   position: absolute;
@@ -356,23 +367,39 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.cards__control--left, .cards__control--right {
+.cards__control--right {
+  display: flex;
+  justify-items: right;
+}
+.cards__control--left, .cards__control--right, .cards__control--start, .cards__control--end {
   border-color: #F1CDB3;
+}
+.cards__control--start, .cards__control--end {
+  display: none;
 }
 .cards__control:hover {
   background-color: #FDDCC4;
   border-color: #FDDCC4;
   color: #292929;
 }
+.cards__blocks {
+  display: flex;
+  justify-content: center;
+  max-width: 1280px;
+}
 .cards__item {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   max-width: 270px;
   border-radius: 9px;
   background-color: #FAFAFA;
   cursor: pointer;
   transition: all 1s ease-in-out;
+}
+.cards__item--centered {
+  margin: 0 7.5%;
 }
 .cards__item:hover {
   background-color: #FFFFFF;
@@ -381,10 +408,11 @@ body {
   background-color: #FDDCC4;
   border-color: #FDDCC4;
 }
-.cards__item--centered {
-  margin: 0 90px;
+.cards__image {
+  max-width: fit-content;
 }
 .cards__title {
+  display: flex;
   font-family: "Georgia";
   font-size: 20px;
   line-height: 23px;
@@ -435,22 +463,23 @@ body {
 }
 .help__items {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
 }
 .help__item {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   padding-top: 55px;
-  margin-left: 120px;
+  margin-right: 10%;
   width: fit-content;
 }
-.help__item--start {
-  margin-left: 87px;
-}
 .help__item--vitamins {
-  margin-left: 185px;
+  margin-left: 120px;
+}
+.help__item--shampoos {
+  margin-right: 0;
 }
 .help__image {
   margin: 0 auto;
@@ -560,15 +589,17 @@ body {
 .contacts {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   padding-top: 40px;
 }
 .contacts__item {
   max-width: 279px;
   display: flex;
   flex-direction: column;
+  padding-bottom: 60px;
 }
 .contacts__item--center {
-  margin: 0 160px;
+  margin: 0 13%;
   max-width: 302px;
 }
 .contacts__title {
@@ -679,10 +710,7 @@ body {
   color: #CDCDCD;
 }
 .contacts__image {
-  background-image: url(../../assets/images/footer-puppy.svg);
-  background-size: cover;
-  width: 300px;
-  height: 310px;
+  width: 25%;
 }
 
 * {
@@ -719,20 +747,23 @@ body {
   padding-top: 80px;
   margin: 0;
   text-align: center;
+  margin-bottom: 30px;
 }
 .friends__cards {
   display: flex;
+  justify-content: center;
   padding-top: 30px;
   flex-wrap: wrap;
+  gap: 0 40px;
 }
 .friends__item {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  max-width: 270px;
+  width: 270px;
   border-radius: 9px;
   background-color: #FAFAFA;
-  margin-left: 40px;
   margin-top: 30px;
   cursor: pointer;
   transition: all 1s ease-in-out;
@@ -828,6 +859,399 @@ body {
   color: #CDCDCD;
   background-color: transparent;
   cursor: auto;
+}
+
+@media screen and (max-width: 1023px) {
+  .friends__cards {
+    padding-top: 0;
+  }
+  .friends__title {
+    margin-bottom: 0;
+  }
+  .friends__pagination {
+    padding-top: 40px;
+  }
+  .friends__item--scarlett, .friends__item--freddie {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .header__nav {
+    display: none;
+  }
+  .our-friends {
+    padding-bottom: 42px;
+  }
+  .friends__title {
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    padding-top: 42px;
+  }
+  .friends__cards {
+    padding-top: 12px;
+  }
+  .friends__control {
+    margin-left: 3%;
+  }
+  .friends__item--sophia, .friends__item--timmy, .friends__item--charly, .friends__item--scarlett, .friends__item--freddie {
+    display: none;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .container {
+    padding: 0 30px;
+  }
+  .background {
+    background-image: url(../../assets/images/start-screen-gradient-background-md.jpg);
+  }
+  .offer {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+  }
+  .offer__text {
+    padding-top: 0;
+  }
+  .offer__subtitle {
+    max-width: 460px;
+  }
+  .offer__button {
+    justify-items: center;
+    align-self: center;
+  }
+  .offer__image {
+    padding-top: 100px;
+    width: 86%;
+    align-self: flex-end;
+  }
+  .info {
+    flex-direction: column-reverse;
+  }
+  .info__text {
+    padding-left: 0;
+    align-self: center;
+  }
+  .info__title {
+    padding-top: 0;
+  }
+  .info__image {
+    max-width: 300px;
+    padding-top: 80px;
+    align-self: center;
+  }
+  .cards__item--first {
+    margin-left: 12px;
+  }
+  .cards__item--centered {
+    margin: 0;
+    margin-left: 40px;
+  }
+  .cards__item--last {
+    display: none;
+  }
+  .cards__control--left {
+    margin-right: 12px;
+    right: 0;
+    left: unset;
+  }
+  .cards__control--right {
+    margin-left: 12px;
+  }
+  .help {
+    padding-left: 39px;
+    padding-right: 39px;
+  }
+  .help__item {
+    width: 170px;
+    margin-right: 60px;
+    justify-content: space-between;
+  }
+  .help__item--vitamins {
+    margin-left: 60px;
+    margin-right: 0;
+  }
+  .help__item--toys, .help__item--shampoos, .help__item--sleeping {
+    margin-right: 0;
+  }
+  .donation {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding-top: 80px;
+  }
+  .donation__image {
+    padding-top: 60px;
+  }
+  .donation__action {
+    margin-left: 0;
+  }
+  .footer {
+    background-image: url(../../assets/images/footer-gradient-background-md.jpg);
+  }
+  .contacts {
+    flex-wrap: wrap;
+    padding-top: 30px;
+  }
+  .contacts__item {
+    max-width: 300px;
+  }
+  .contacts__item--center {
+    margin: 0;
+    margin-left: 6%;
+  }
+  .contacts__image {
+    width: 42%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 0 10px;
+  }
+  .header__logo {
+    padding-left: 10px;
+  }
+  .header__mob-menu {
+    display: flex;
+    justify-content: end;
+    height: 40px;
+  }
+  .header__menu-button {
+    background-color: #F1CDB3;
+    border: none;
+    display: block;
+    width: 30px;
+    height: 2px;
+    position: relative;
+    top: 21px;
+    right: 10px;
+    padding: 0;
+  }
+  .header__menu-button:before, .header__menu-button:after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #F1CDB3;
+    position: absolute;
+    left: 0;
+  }
+  .header__menu-button:before {
+    bottom: -10px;
+  }
+  .header__menu-button:after {
+    bottom: -20px;
+  }
+  .header__menu-button--dark {
+    background-color: #000000;
+  }
+  .header__menu-button--dark:before, .header__menu-button--dark:after {
+    background-color: #000000;
+  }
+  .nav {
+    display: none;
+  }
+  .offer__text {
+    text-align: center;
+  }
+  .offer__title {
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+  }
+  .offer__image {
+    max-width: 100%;
+    padding-top: 105px;
+    padding-left: 0;
+  }
+  .cards__item--centered {
+    display: none;
+  }
+  .donation__image {
+    width: 100%;
+  }
+  .info {
+    padding-bottom: 0;
+    padding-top: 42px;
+  }
+  .info__text {
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .info__title {
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+  }
+  .info__content {
+    text-align: justify;
+  }
+  .info__content--down {
+    padding-top: 22px;
+  }
+  .info__image {
+    padding: 42px 20px;
+  }
+  .our-friends {
+    padding-bottom: 42px;
+  }
+  .our-friends__button {
+    margin-bottom: 0;
+  }
+  .our-friends__title {
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    padding-top: 42px;
+  }
+  .cards {
+    padding-top: 42px;
+    padding-bottom: 42px;
+    margin-bottom: 0;
+    flex-direction: column;
+  }
+  .cards__item {
+    margin: 0 15px;
+    align-self: center;
+  }
+  .cards__mob-control {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+  .cards__control--left, .cards__control--right {
+    display: none;
+  }
+  .cards__control--start, .cards__control--end {
+    display: flex;
+  }
+  .help {
+    margin: 0 auto;
+    max-width: 320px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 42px;
+  }
+  .help__title {
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    padding-top: 42px;
+    margin-bottom: 12px;
+  }
+  .help__item {
+    width: 130px;
+    margin-right: 30px;
+    padding-top: 30px;
+  }
+  .help__item--transportation, .help__item--bowls, .help__item--collars {
+    margin-right: 0;
+  }
+  .help__item--vitamins {
+    margin: 0;
+  }
+  .help__item--sleeping {
+    margin-right: 155px;
+  }
+  .help__image {
+    width: 50px;
+  }
+  .help__image--start {
+    width: 40px;
+  }
+  .help__image--shampoos {
+    width: 26px;
+  }
+  .help__image--sleeping {
+    width: 47px;
+  }
+  .help__description {
+    font-size: 15px;
+    line-height: 17px;
+    padding-top: 20px;
+  }
+  .in-addition {
+    padding-bottom: 42px;
+  }
+  .donation {
+    padding-top: 42px;
+  }
+  .donation__action {
+    margin: 0;
+    padding: 0 10px;
+  }
+  .donation__title {
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    text-align: center;
+  }
+  .donation__subtitle {
+    text-align: center;
+    line-height: 24px;
+    letter-spacing: 0;
+  }
+  .donation__form {
+    max-width: 281px;
+    margin: 0 auto;
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+  .donation__link {
+    font-size: 15px;
+    line-height: 17px;
+  }
+  .donation__text {
+    text-align: justify;
+  }
+  .donation__image {
+    padding: 42px 20px 0;
+  }
+  .contacts {
+    padding-top: 30px;
+  }
+  .contacts__item {
+    padding-bottom: 40px;
+  }
+  .contacts__item--left {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+  .contacts__item--center {
+    margin-left: 0;
+  }
+  .contacts__mail {
+    margin-left: 13px;
+  }
+  .contacts__phone {
+    padding-top: 54px;
+    margin-left: 19px;
+  }
+  .contacts__image {
+    margin-top: 5px;
+  }
+  .contacts__title {
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    text-align: center;
+    max-width: 300px;
+  }
+  .contacts__title--center {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .contacts__address--top {
+    padding-top: 40px;
+  }
+  .contacts__address--bottom {
+    padding-top: 45px;
+  }
+  .contacts__image {
+    width: 88%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

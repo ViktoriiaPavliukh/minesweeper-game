@@ -17,7 +17,7 @@
 
     &__logo-title{
        font-size: 32px;
-       line-height: 33px;
+       line-height: 35px;
        letter-spacing: 0.06em;
        font-family: "Georgia";
        color: $text-color-secondary;
@@ -38,6 +38,10 @@
         &--dark{
             color: $text-color-dark;
         }
+    }
+
+    &__mob-menu{
+        display: none;
     }
 
     &__nav{
