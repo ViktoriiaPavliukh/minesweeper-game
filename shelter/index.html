@@ -18,10 +18,10 @@
                         <span class="header__logo-title">Cozy House</span>
                         <span class="header__logo-subtitle">Shelter for pets in Boston</span>
                     </a>
-                    <div class="header__mob-menu">
+                    <div class="header__mob-menu" id="burgerBtn">
                         <button class="header__menu-button" type="submit"></button>
                     </div>
-                    <nav class="nav">
+                    <nav class="nav" id="navigation">
                         <a class="active-light nav__item nav__item--about-light">About the shelter</a>
                         <a href="pages/pets/index.html" class="nav__item nav__item--pets-light">Our pets</a>
                         <a href="#help" class="nav__item nav__item--help-light">Help the shelter</a>
@@ -61,26 +61,66 @@
             <div class="cards"> 
                 <div class="cards__blocks">
                      <div class="cards__column">
-                    <button class="cards__control cards__control--left"></button>
+                    <button id="btnLeft" class="cards__control cards__control--left"></button>
                     </div>
-                    <div class="cards__item cards__item--first">
-                        <img src="assets/images/pets-katrine.svg" alt="Katrine" class="cards__image">
-                        <span class="cards__title">Katrine</span>
-                        <button class="cards__button">Learn more</button>
+                    <div class="cards__wrapper" id="slider">
+                        <div class="cards__carousel" id="carousel">
+                            <div class="cards__set" id="items-left">
+                                <div class="cards__item cards__item--sophia">
+                                    <img src="assets/images/pets-sophia.svg" alt="Sophia" class="cards__image">
+                                    <span class="cards__title">Sophia</span>
+                                    <button class="cards__button">Learn more</button>
+                                </div>
+                                 <div class="cards__item cards__item--timmy">
+                                    <img src="assets/images/pets-timmy.svg" alt="Timmy" class="cards__image">
+                                    <span class="cards__title">Timmy</span>
+                                    <button class="cards__button">Learn more</button>
+                                </div>
+                                <div class="cards__item cards__item--charly">
+                                    <img src="assets/images/pets-charly.svg" alt="Charly" class="cards__image">
+                                    <span class="cards__title">Charly</span>
+                                    <button class="cards__button">Learn more</button>
+                                </div>
+                            </div>
+                            <div class="cards__set cards__set--left" id="items-active">
+                                <div class="cards__item cards__item--first">
+                                    <img src="assets/images/pets-katrine.svg" alt="Katrine" class="cards__image">
+                                    <span class="cards__title">Katrine</span>
+                                    <button class="cards__button">Learn more</button>
+                                </div>
+                                <div class="cards__item cards__item--centered">
+                                    <img src="assets/images/pets-jennifer.svg" alt="Jennifer" class="cards__image">
+                                    <span class="cards__title">Jennifer</span>
+                                    <button class="cards__button">Learn more</button>
+                                </div>
+                                <div class="cards__item cards__item--last">
+                                    <img src="assets/images/pets-woody.svg" alt="Woody" class="cards__image">
+                                    <span class="cards__title">Woody</span>
+                                    <button class="cards__button">Learn more</button>
+                                </div>
+                            </div>
+                            <div class="cards__set" id="items-right"> 
+                                <div class="cards__item cards__item--scarlett">
+                                    <img src="assets/images/pets-scarlet.svg" alt="Scarlett" class="cards__image">
+                                    <span class="cards__title">Scarlett</span>
+                                    <button class="cards__button">Learn more</button>
+                                </div>
+                                <div class="cards__item cards__item--freddie">
+                                    <img src="assets/images/pets-katrine.svg" alt="Freddie" class="cards__image">
+                                    <span class="cards__title">Freddie</span>
+                                    <button class="cards__button">Learn more</button>
+                                </div>
+                                <div class="cards__item cards__item--first">
+                                    <img src="assets/images/pets-katrine.svg" alt="Katrine" class="cards__image">
+                                    <span class="cards__title">Katrine</span>
+                                    <button class="cards__button">Learn more</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                    <div class="cards__column cards__column--end">
+                        <button id="btnRight" class="cards__control cards__control--right"></button>
                     </div>
-                    <div class="cards__item cards__item--centered">
-                        <img src="assets/images/pets-jennifer.svg" alt="Jennifer" class="cards__image">
-                        <span class="cards__title">Jennifer</span>
-                        <button class="cards__button">Learn more</button>
-                    </div>
-                    <div class="cards__item cards__item--last">
-                        <img src="assets/images/pets-woody.svg" alt="Woody" class="cards__image">
-                        <span class="cards__title">Woody</span>
-                        <button class="cards__button">Learn more</button>
-                    </div>
-                     <div class="cards__column cards__column--end">
-                    <button class="cards__control cards__control--right"></button>
-                </div>
                 </div>
                 <div class="cards__mob-control">
                     <button class="cards__control cards__control--start"></button>
