@@ -1,5 +1,62 @@
 const btnLight = document.querySelector('#btnLight');
 const body = document.querySelector('body');
+const popupLinks = document.querySelectorAll('.friends__item');
+// const lockPadding; 
+let unlock = true;
+const timeout = 500;
+console.log(popupLinks);
+
+if(popupLinks.length > 0) {
+    for(let index = 0; index < popupLinks.length; index++){
+        const popupLink = popupLinks[index];
+        popupLink.addEventListener('click', function (e) {
+            const currentPopup = document.getElementsByClassName('.friends__item');
+            popupOpen(currentPopup);    
+        });
+    }
+    
+}
+
+function popupOpen(currentPopup) {
+    currentPopup.classList.add('.open');
+        // currentPopup.addEventListener('click', function (e) {
+        //     if(!e.target.closest('.popup__content')) {
+        //     popupClose(e.target.closest('.popup'));
+        //     }   
+        // });
+}
+
+// function popupOpen(currentPopup) {
+//     currentPopup.classList.add('.open');
+//         currentPopup.addEventListener('click', function (e) {
+//             if(!e.target.closest('.popup__content')) {
+//             popupClose(e.target.closest('.popup'));
+//             }   
+//         });
+// }
+// function popupOpen(currentPopup) {
+//     if (currentPopup && unlock) {
+//         const popupActive = document.querySelector('.popup.open');
+//         if(popupActive) {
+//             popupClose(popupActive, false);
+//         // } else {
+//         //     bodyLock();
+//         }
+
+//         currentPopup.classList.add('.open');
+//         currentPopup.addEventListener('click', function (e) {
+//             if(!e.target.closest('.popup__content')) {
+//             popupClose(e.target.closest('.popup'));
+//             }   
+//         });
+//     }
+// }
+
+function popupClose(popupActive) {
+    if(unlock) {
+        popupActive.classList.remove('open');
+    }
+}
 
 btnLight.addEventListener('click', function() {
     body.classList.toggle('stop-scroll');
@@ -18,18 +75,71 @@ const nextBtn = document.querySelector('[data-btn="next"]');
 const lastBtn = document.querySelector('[data-btn="last"]');
 const inactiveLinks = document.querySelectorAll('a.inactive');
 
-let pets = [];
 let fullPetsList = [];
 
-let currentPage = 0;
+let currentPage = 1;
 let petsPerPage = 8;
 
-// fetch('../../pets.json')
-//   .then(res => res.json())
-//   .then(list => {
-//     pets = list;
+const pets = [
+  {
+    image: '../../assets/images/pets-sophia.svg',
+    alt: 'Sophia',
+    title: 'Sophia',
+    button: 'Learn more'
+  },
+  {
+    image: '../../assets/images/pets-timmy.svg',
+    alt: 'Timmy',
+    title: 'Timmy',
+    button: 'Learn more'
+  },
+  {
+    image: '../../assets/images/pets-charly.svg',
+    alt: 'Charly',
+    title: 'Charly',
+    button: 'Learn more'
+  },
+  {
+    image: '../../assets/images/pets-katrine.svg',
+    alt: 'Katrine',
+    title: 'Katrine',
+    button: 'Learn more'
+  },
+   {
+    image: '../../assets/images/pets-jennifer.svg',
+    alt: 'Jennifer',
+    title: 'Jennifer',
+    button: 'Learn more'
+  },
+  {
+    image: '../../assets/images/pets-woody.svg',
+    alt: 'Woody',
+    title: 'Woody',
+    button: 'Learn more'
+  },
+  {
+    image: '../../assets/images/pets-scarlet.svg',
+    alt: 'Scarlett',
+    title: 'Scarlett',
+    button: 'Learn more'
+  },
+  {
+    image: '../../assets/images/pets-katrine.svg',
+    alt: 'Freddie',
+    title: 'Freddie',
+    button: 'Learn more'
+  },
+  {
+    image: '../../assets/images/pets-katrine.svg',
+    alt: 'Katrine',
+    title: 'Katrine',
+    button: 'Learn more'
+  },
+];
 
-//     fullPetsList = (() => {
+function main() {}
+
+// fullPetsList = (() => {
 //         let tempArr = [];
 
 //         for (let i = 0; i < 6; i++) {
@@ -43,6 +153,8 @@ let petsPerPage = 8;
 
 //             tempArr = [...tempArr, ...shuffledPets];
 //         }
+
+//         console.log(tempArr);
 //         return tempArr;
 //     })();
 
@@ -50,10 +162,8 @@ let petsPerPage = 8;
 
 //     checkPetsPerPage();
 //     displayPets(fullPetsList, petsPerPage, currentPage);
-//   })
 
-
-// function sortSixElements(list) {
+//     function sortSixElements(list) {
 //     const length = list.length;
 
 //     for (let i = 0; i < (length / 6); i++) {
@@ -79,13 +189,14 @@ let petsPerPage = 8;
 //     return list;
 // }
 
-// function createPetCard(pet) {
+// function createPetCard(card) {
 //     return `
-//         <div class="card" data-pet="${pet.name}">
-//             <img src="${pet.img}" alt="cat">
-//             <p class="card-title">${pet.name}</p>
-//             <button class="card-button">Learn more</button>
-//         </div>`;
+//     <div class="cards__item">
+//       <img src="${card.image}" alt="${card.alt}" class="cards__image">
+//       <span class="cards__title">${card.title}</span>
+//       <button class="cards__button">${card.button}</button>
+//     </div>
+//       `
 // }
 
 // function checkPetsPerPage() {
@@ -134,7 +245,7 @@ let petsPerPage = 8;
 //             return;
 //     }
 
-//     paginationButtons();
+//      paginationButtons();
 //     displayPets(fullPetsList, petsPerPage, currentPage);
 // }
 
@@ -154,7 +265,7 @@ let petsPerPage = 8;
 // }
 
 // pagination.addEventListener('click', (e) => {
-//     if (!e.target.classList.contains('nav-btn') || e.target.classList.contains('current')) return;
+//     if (!e.target.classList.contains('friends__control') || e.target.classList.contains('friends__control--active')) return;
 //     const btn = e.target.dataset.btn;
 //     setupPagination(btn);
 // })
@@ -163,85 +274,3 @@ let petsPerPage = 8;
 //     checkPetsPerPage();
 //     displayPets(fullPetsList, petsPerPage, currentPage);
 // })
-
-
-// const modalWindow = {};
-// let isModalOpen = false;
-
-// modalWindow.init = function() {
-//     const modalElement = document.createElement('div');
-//     modalElement.classList.add('modal');
-//     document.body.prepend(modalElement);
-
-//     const modal = {
-//         open() {
-//             modalElement.classList.add('active');
-//             overlay.classList.add('active');
-//             isModalOpen = true;
-//         },
-//         close() {
-//             modalElement.classList.remove('active');
-//             overlay.classList.remove('active');
-//             isModalOpen = false;
-//         }
-//     };
-    
-//     modalElement.addEventListener('click', e => {
-//         if (e.target.classList.contains('close-btn')) {
-//             modal.close();
-//         }
-//     });
-
-//     return Object.assign(modal, {
-//         setContent(content) {
-//             modalElement.innerHTML = `
-//             <button class="close-btn">&times;</button>
-//             <div class="modal-image-block">
-//                 <img src="${content.img}">
-//             </div>
-//             <div class="modal-text-block">
-//                 <div class="modal-title">
-//                     <h3 class="header-3">${content.name}</h3>
-//                     <h4 class="header-4">${content.type} - ${content.breed}</h4>
-//                 </div>
-//                 <h5 class="header-5">${content.description}</h5>
-//                 <ul class="modal-list">
-//                     <li class="header-5"><b>Age:</b> ${content.age}</li>
-//                     <li class="header-5"><b>Inoculations:</b> ${content.inoculations}</li>
-//                     <li class="header-5"><b>Diseases:</b> ${content.diseases}</li>
-//                     <li class="header-5"><b>Parasites:</b> ${content.parasites}</li>
-//                 </ul>
-//             </div>
-//         `;
-//         }
-//     });
-// }
-
-// const petModal = modalWindow.init();
-
-// inactiveLinks.forEach(link => {
-//     link.addEventListener('click', (e) => {
-//         e.preventDefault();
-//     })
-// })
-
-
-// overlay.addEventListener('click', (e) => {
-//     if (!overlay.classList.contains('active')) return;
-//     if (isMenuOpen) {
-//         hideMenu();
-//     }
-//     if (isModalOpen) {
-//         petModal.close();
-//     }
-// })
-
-// petsContainer.addEventListener('click', (e) => {
-//     const selectedPet = e.target.closest('.card');
-//     if (!selectedPet) return;
-//     const petName = selectedPet.dataset.pet;
-//     const petInfo = pets.find(pet => pet.name == petName);
-//     petModal.setContent(petInfo);
-//     petModal.open();
-// });
-

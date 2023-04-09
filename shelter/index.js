@@ -9,6 +9,13 @@ const body = document.querySelector('body');
 const leftItems = document.querySelector('#items-left');
 const rightItems = document.querySelector('#items-right');
 const set = document.querySelector('.cards__set');
+
+
+burgerBtn.addEventListener('click', function() {
+    body.classList.toggle('stop-scroll');
+    document.querySelector('.background').classList.toggle('open')
+})
+
 const cardsArr = [
   {
     image: 'assets/images/pets-sophia.svg',
@@ -65,17 +72,6 @@ const cardsArr = [
     button: 'Learn more'
   },
 ];
-
-console.log(typeof cardsArr);
-
-burgerBtn.addEventListener('click', function() {
-    body.classList.toggle('stop-scroll');
-    document.querySelector('.background').classList.toggle('open')
-})
-
-  
-
-  
 
 const createCardTemplate = () => {
   const card = document.createElement('div');
