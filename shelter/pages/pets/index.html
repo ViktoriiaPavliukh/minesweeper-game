@@ -17,8 +17,8 @@
                         <span class="header__logo-title header__logo-title--dark">Cozy House</span>
                         <span class="header__logo-subtitle header__logo-subtitle--dark">Shelter for pets in Boston</span>
                     </a>
-                    <div class="header__mob-menu">
-                        <button id="btnLight" class="header__menu-button header__menu-button--dark" type="submit"></button>
+                    <div class="header__mob-menu" id="btnLight">
+                        <button class="header__menu-button header__menu-button--dark" type="submit"></button>
                     </div>
                     <nav class="header__nav header__nav--light">
                         <a href="../../index.html" class="header__item header__item--about-dark">About the shelter</a>
@@ -33,7 +33,7 @@
                 <div class="container">
                     <div class="friends">
                         <h1 class="friends__title">Our friends who <br> are looking for a house</h1>
-                        <div class="friends__cards">
+                        <div class="friends__cards" id="pets">
                             <div class="friends__item friends__item--katrine">
                                 <img src="../../assets/images/pets-katrine.svg" alt="Katrine">
                                 <span class="friends__subtitle">Katrine</span>
@@ -76,11 +76,11 @@
                             </div>
                         </div>
                         <div class="friends__pagination">
-                            <button class="disable friends__control friends__control--first">&#60;&#60;</button>
-                            <button class="disable friends__control friends__control--back">&#60;</button>
+                            <button class="disable friends__control friends__control--first" data-btn="first">&#60;&#60;</button>
+                            <button class="disable friends__control friends__control--back" data-btn="prev">&#60;</button>
                             <button class="friends__control friends__control--active">1</button>
-                            <button class="friends__control friends__control--ahead">&#62;</button>
-                            <button class="friends__control friends__control--last">&#62;&#62;</button>
+                            <button class="friends__control friends__control--ahead" data-btn="next">&#62;</button>
+                            <button class="friends__control friends__control--last" data-btn="last">&#62;&#62;</button>
                         </div>
                     </div>
                 </div>    
