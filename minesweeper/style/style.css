@@ -1,7 +1,6 @@
 .container {
   display: flex;
   justify-content: center;
-  width: 100vw;
   height: 100vh;
   background-color: rgb(184, 214, 179);
 
@@ -10,13 +9,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 350px;
+  width: 329px;
   height: fit-content;
   padding-top: 20px;
 }
-.cell {
+button {
   background-color: rgb(123, 160, 131);
   width: 30px;
   height: 30px;
   border: 1px solid white;
+  cursor: pointer;
+}
+button:hover {
+  background-color: green;
 }
