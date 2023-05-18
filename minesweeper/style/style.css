@@ -3,19 +3,43 @@
   justify-content: start;
   align-items: center;
   flex-direction: column-reverse;
-  height: 100vh;
   background-color: rgb(184, 214, 179);
-
 }
 .minesweeper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 329px;
   height: fit-content;
   padding-top: 20px;
+  padding-bottom: 100%;
 }
+
+.minesweeper.board-easy {
+  width: 329px;
+}
+
+.minesweeper.board-medium {
+  /* width: 299px; */
+  width: 375px;
+}
+
+.minesweeper.board-medium .cell {
+  width: 25px;
+  height: 25px;
+}
+
+.minesweeper.board-hard {
+  width: 630px;
+}
+.minesweeper.board-hard .cell {
+  width: 25px;
+  height: 25px;
+}
+
 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(123, 160, 131);
   width: 30px;
   height: 30px;
@@ -42,4 +66,22 @@
   height: 40px;
   margin-top: 10px;
   color: red;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.level {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.button-level{
+  color: red;
+  border: 3px inset red;
+  background-color: transparent;
 }

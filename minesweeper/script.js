@@ -1,76 +1,128 @@
+let container, minesweeperWrapper, cells, bombs, closedCellsCount, isFirstMove, timer;
 
-function renderBoard(width, height, mines) {
-  const container = document.createElement('div');
-  const header =  document.createElement('header');
-  const minesweeperWrapper = document.createElement('div');
+function renderBoard(size, mines) {
+  let width, height;
+  switch (size) {
+    case 'easy':
+      width = 10;
+      height = 10;
+      boardClass = 'board-easy';
+      break;
+    case 'medium':
+      width = 15;
+      height = 15;
+      boardClass = 'board-medium';
+      break;
+    case 'hard':
+      width = 25;
+      height = 25;
+      boardClass = 'board-hard';
+      break;
+    default:
+      width = 10;
+      height = 10;
+      boardClass = 'board-easy';
+  }
+
+  if (container) {
+    document.body.removeChild(container);
+  }
+
+  container = document.createElement('div');
+  const header = document.createElement('header');
+  const levelElem = document.createElement('div');
+  const levelEasy = document.createElement('button');
+  const levelNormal = document.createElement('button');
+  const levelHard = document.createElement('button');
   const cellsAmount = width * height;
   let divTimer = document.createElement('div');
   let startTime;
   let moves = 0;
-  let timer = 0;
 
-  container.className = "container";
-  header.className = "header";
-  minesweeperWrapper.className = "minesweeper";
-  divTimer.className = "timer";
-  divTimer.innerText = "00:00";
+  container.className = 'container';
+  header.className = 'header';
+  levelElem.className = 'level';
+  levelEasy.className = 'button-level';
+  levelEasy.innerText = 'EASY';
+  levelNormal.innerText = 'MEDIUM';
+  levelHard.innerText = 'HARD';
+  levelNormal.className = 'button-level';
+  levelHard.className = 'button-level';
+  minesweeperWrapper = document.createElement('div');
+  minesweeperWrapper.className = 'minesweeper ' + boardClass;
+  divTimer.className = 'timer';
+  divTimer.innerText = '00:00';
   document.body.appendChild(container);
   container.appendChild(minesweeperWrapper);
   container.appendChild(header);
   header.appendChild(divTimer);
+  header.appendChild(levelElem);
+  levelElem.append(levelEasy, levelNormal, levelHard);
+
+  cells = [];
+  bombs = [];
+  closedCellsCount = cellsAmount;
+  isFirstMove = true;
+  clearInterval(timer);
 
   for (let i = 0; i < cellsAmount; i++) {
     const button = document.createElement('button');
     button.className = 'cell';
     minesweeperWrapper.appendChild(button);
+    cells.push(button);
   }
-  
-  const cells = [...minesweeperWrapper.children];
-  let closedCellsCount = cellsAmount; 
-  let isFirstMove = true;
 
-  const bombs = [...Array(cellsAmount).keys()]
-  .sort(() => Math.random() - 0.5)
-  .slice(0, mines);
+  levelEasy.addEventListener('click', () => {
+    renderBoard('easy, 10');
+  });
+  levelNormal.addEventListener('click', () => {
+    renderBoard('medium', 15);
+  });
 
-  minesweeperWrapper.addEventListener('click', (event) => {
-    if (event.target.tagName !== 'BUTTON') {
-      return console.log('not field');
-    }
+  levelHard.addEventListener('click', () => {
+    renderBoard('hard', 25);
+  });
 
-    const index = cells.indexOf(event.target);
-    const col = index % width;
-    const row = Math.floor(index / width);
-    
-    if (isFirstMove) {
-      isFirstMove = false;
-      startTime = performance.now();
-      placeMines(row, col);
-    }
+  cells.forEach((cell) => {
+    cell.addEventListener('click', (event) => {
+      if (event.target.tagName !== 'BUTTON') {
+        return console.log('not field');
+      }
 
-    openCell(row, col);
+      const index = cells.indexOf(event.target);
+      const col = index % width;
+      const row = Math.floor(index / width);
+
+      if (isFirstMove) {
+        isFirstMove = false;
+        startTime = performance.now();
+        placeMines(row, col);
+        timerFunc();
+      }
+
+      openCell(row, col);
+    });
   });
 
   function timerFunc() {
     let seconds = 1;
     let minutes = 0;
     timer = setInterval(() => {
-        if (seconds >= 60) {
-            minutes++;
-            seconds = 0;
-        }
-        if (seconds < 10) {
-            seconds = "0" + seconds;
-        }
-        if (minutes >= 10) {
-            divTimer.innerText = `${minutes}:${seconds}`;
-        } else {
-            divTimer.innerText = `0${minutes}:${seconds}`;
-        }
-        seconds++;
+      if (seconds >= 60) {
+        minutes++;
+        seconds = 0;
+      }
+      if (seconds < 10) {
+        seconds = '0' + seconds;
+      }
+      if (minutes >= 10) {
+        divTimer.innerText = `${minutes}:${seconds}`;
+      } else {
+        divTimer.innerText = `0${minutes}:${seconds}`;
+      }
+      seconds++;
     }, 1000);
-}
-timerFunc();
+  }
 
   function isValid(row, col) {
     return row >= 0 && row < height && col >= 0 && col < width;
@@ -80,14 +132,14 @@ timerFunc();
     const initialIndex = initialRow * width + initialCol;
     const excludedIndexes = [initialIndex];
 
-    bombs.length = 0 ;
+    bombs.length = 0;
     for (let i = 0; i < mines; i++) {
       let randomIndex;
       do {
         randomIndex = Math.floor(Math.random() * cellsAmount);
       } while (excludedIndexes.includes(randomIndex));
-        bombs.push(randomIndex);
-        excludedIndexes.push(randomIndex);
+      bombs.push(randomIndex);
+      excludedIndexes.push(randomIndex);
     }
   }
 
@@ -95,9 +147,9 @@ timerFunc();
     let count = 0;
     for (let x = -1; x <= 1; x++) {
       for (let y = -1; y <= 1; y++) {
-       if ( isBomb(row + y, col + x)) {
-         count++;
-       }
+        if (isBomb(row + y, col + x)) {
+          count++;
+        }
       }
     }
     return count;
@@ -121,16 +173,11 @@ timerFunc();
     }
 
     closedCellsCount--;
-    // if (!cell.classList.contains('opened')) {
-    //   cell.classList.add('opened');
-    //   moves++;
-    //   console.log(moves);
-    // } 
 
     if (closedCellsCount <= mines) {
       const endTime = performance.now();
       const elapsedTime = Math.floor((endTime - startTime) / 1000);
-      alert (`Hooray! You found all mines in ${elapsedTime} seconds and N moves!!`);
+      alert(`Hooray! You found all mines in ${elapsedTime} seconds and N moves!!`);
       clearInterval(timer);
       return;
     }
@@ -141,19 +188,18 @@ timerFunc();
       return;
     }
 
-     for (let x = -1; x <= 1; x++) {
+    for (let x = -1; x <= 1; x++) {
       for (let y = -1; y <= 1; y++) {
-       openCell(row + y, col + x);
-         
-       }
-      }  
+        openCell(row + y, col + x);
+      }
+    }
   }
 
   function isBomb(row, col) {
     if (!isValid(row, col)) return false;
-    const index =  row * width + col; 
+    const index = row * width + col;
     return bombs.includes(index);
   }
 }
 
-renderBoard(10, 10, 10);
+renderBoard('easy', 10);
