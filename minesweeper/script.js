@@ -1,7 +1,14 @@
 let container, minesweeperWrapper, cells, bombs, closedCellsCount, isFirstMove, timer;
+let minesRemaining = 0;
+let usedFlags = 0;
+let minesRemainingElem;
+let usedFlagsElem;
 
 function renderBoard(size, mines) {
-  let width, height;
+  let width, height, boardClass;
+  minesRemaining = mines;
+  usedFlags = 0;
+
   switch (size) {
     case 'easy':
       width = 10;
@@ -34,8 +41,10 @@ function renderBoard(size, mines) {
   const levelEasy = document.createElement('button');
   const levelNormal = document.createElement('button');
   const levelHard = document.createElement('button');
-  const cellsAmount = width * height;
+  minesRemainingElem = document.createElement('div');
+  usedFlagsElem = document.createElement('div');
   let divTimer = document.createElement('div');
+  const cellsAmount = width * height;
   let startTime;
   let moves = 0;
 
@@ -57,8 +66,13 @@ function renderBoard(size, mines) {
   container.appendChild(header);
   header.appendChild(divTimer);
   header.appendChild(levelElem);
+  header.appendChild(minesRemainingElem);
+  header.appendChild(usedFlagsElem);
   levelElem.append(levelEasy, levelNormal, levelHard);
 
+  
+  updateMineCount();
+  updateFlagCount();
   cells = [];
   bombs = [];
   closedCellsCount = cellsAmount;
@@ -73,21 +87,29 @@ function renderBoard(size, mines) {
   }
 
   levelEasy.addEventListener('click', () => {
-    renderBoard('easy, 10');
+    renderBoard('easy', 10);
   });
   levelNormal.addEventListener('click', () => {
     renderBoard('medium', 15);
   });
 
   levelHard.addEventListener('click', () => {
-    renderBoard('hard', 25);
+    renderBoard('hard', 100);
   });
 
   cells.forEach((cell) => {
     cell.addEventListener('click', (event) => {
-      if (event.target.tagName !== 'BUTTON') {
-        return console.log('not field');
-      }
+      if (event.button === 0 && event.altKey) {
+        const index = cells.indexOf(cell);
+        const col = index % width;
+        const row = Math.floor(index / width);
+        addFlag(row, col);
+      } else {
+        if (event.target.tagName !== 'BUTTON') {
+          return console.log('not field');
+        }
+      }  
+
 
       const index = cells.indexOf(event.target);
       const col = index % width;
@@ -104,23 +126,55 @@ function renderBoard(size, mines) {
     });
   });
 
-  function timerFunc() {
-    let seconds = 1;
+  function updateMineCount() {
+    minesRemainingElem.innerText = `Mines Remaining: ${minesRemaining}`;
+  }
+
+  function updateFlagCount() {
+    usedFlagsElem.innerText = `Flags Used: ${usedFlags}`;
+  }
+
+ function addFlag(row, col) {
+  const index = row * width + col;
+  const cell = cells[index];
+
+  if (cell.classList.contains('opened')) {
+    return;
+  }
+  
+  if (!cell.classList.contains('flagged')) {
+    cell.classList.add('flagged');
+    cell.innerText = '🚩';
+    usedFlags++;
+    updateFlagCount();
+  } else {
+    cell.innerText = '';
+    cell.classList.remove('flagged');
+    usedFlags--;
+    updateFlagCount();
+  }
+
+  if (!cell.classList.contains('flagged') && bombs.includes(index)) {
+    cell.innerHTML = '💣';
+    cell.classList.add('bomb');
+  }
+}
+
+function timerFunc() {
+    let seconds = 0;
     let minutes = 0;
     timer = setInterval(() => {
+      seconds++;
+
       if (seconds >= 60) {
         minutes++;
         seconds = 0;
       }
-      if (seconds < 10) {
-        seconds = '0' + seconds;
-      }
-      if (minutes >= 10) {
-        divTimer.innerText = `${minutes}:${seconds}`;
-      } else {
-        divTimer.innerText = `0${minutes}:${seconds}`;
-      }
-      seconds++;
+
+      const formattedSeconds = seconds < 10 ? '0' + seconds : seconds;
+      const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+
+      divTimer.innerText = `${formattedMinutes}:${formattedSeconds}`;
     }, 1000);
   }
 
@@ -160,17 +214,31 @@ function renderBoard(size, mines) {
     const index = row * width + col;
     const cell = cells[index];
 
-    if (cell.disabled === true) return;
+    if (cell.disabled === true || cell.classList.contains('flagged')) return;
 
     cell.disabled = true;
 
     if (isBomb(row, col)) {
+    if (!cell.classList.contains('flagged')) {
       cell.innerHTML = '💣';
       cell.classList.add('red');
-      alert('Game over. Try again');
-      clearInterval(timer);
-      return;
+    } else {
+      return; // Do nothing if the cell is flagged
     }
+    alert('Game over. Try again');
+    clearInterval(timer);
+    return;
+  }
+
+  //   if (isBomb(row, col)) {
+  //     if (!cell.classList.contains('flagged')) { // Only add bomb class if the cell is not flagged
+  //     cell.innerHTML = '💣';
+  //     cell.classList.add('red');
+  //   }
+  //   alert('Game over. Try again');
+  //   clearInterval(timer);
+  //   return;
+  // }
 
     closedCellsCount--;
 
