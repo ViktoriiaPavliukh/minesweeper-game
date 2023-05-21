@@ -1,9 +1,13 @@
+:root {
+  --main-color: rgb(123, 160, 131);
+}
+
 .container {
   display: flex;
   justify-content: start;
   align-items: center;
-  flex-direction: column-reverse;
-  background-color: rgb(184, 214, 179);
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
 }
 .minesweeper {
   display: flex;
@@ -11,7 +15,7 @@
   justify-content: center;
   height: fit-content;
   padding-top: 20px;
-  padding-bottom: 100%;
+  margin-bottom: 20px;
 }
 
 .minesweeper.board-easy {
@@ -19,7 +23,6 @@
 }
 
 .minesweeper.board-medium {
-  /* width: 299px; */
   width: 375px;
 }
 
@@ -40,7 +43,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(123, 160, 131);
+  background-color: var(--main-color);
   width: 30px;
   height: 30px;
   border: 3px inset white;
@@ -61,27 +64,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
-  width: 100px;
-  height: 40px;
-  margin-top: 10px;
-  color: red;
+  border: 3px inset var(--main-color);
+  width: 60px;
+  height: 38px;
+  color: var(--main-color);
 }
 
 .header {
+  padding-top: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: row;
   gap: 10px;
 }
 
 .level {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 5px;
 }
 
-.button-level{
-  color: red;
-  border: 3px inset red;
+.button-level {
+  color: var(--main-color);
+  border: 3px inset var(--main-color);
   background-color: transparent;
+}
+
+.button-restart {
+  color: var(--main-color);
+  border: 3px inset var(--main-color);
+  background-color: transparent;
+}
+
+.mines-counter, .flags-counter {
+  padding-top: 15px;
 }
