@@ -4,6 +4,7 @@ let usedFlags = 0;
 let minesRemainingElem;
 let usedFlagsElem;
 
+
 export function renderBoard(size, mines) {
   let width, height, boardClass;
   minesRemaining = mines;
@@ -46,10 +47,9 @@ export function renderBoard(size, mines) {
   usedFlagsElem = document.createElement('div');
   let divTimer = document.createElement('div');
   let newGame = document.createElement('button');
+  const themeToggleBtn = document.createElement('button');
   const cellsAmount = width * height;
   let startTime;
-  let moves = 0;
-  const themeToggleBtn = document.createElement('button');
 
 
   container.className = 'container';
@@ -86,6 +86,7 @@ export function renderBoard(size, mines) {
   
   updateMineCount();
   updateFlagCount();
+
   cells = [];
   bombs = [];
   closedCellsCount = cellsAmount;
@@ -100,7 +101,7 @@ export function renderBoard(size, mines) {
   }
 
   levelEasy.addEventListener('click', () => {
-    renderBoard('easy', 10);
+    renderBoard('easy', 2);
   });
   levelNormal.addEventListener('click', () => {
     renderBoard('medium', 15);
@@ -253,7 +254,7 @@ function timerFunc() {
     if (closedCellsCount <= mines) {
       const endTime = performance.now();
       const elapsedTime = Math.floor((endTime - startTime) / 1000);
-      alert(`Hooray! You found all mines in ${elapsedTime} seconds and N moves!!`);
+      alert(`Hooray! You found all mines in ${elapsedTime} seconds!!`);
       clearInterval(timer);
       return;
     }
@@ -262,7 +263,7 @@ function timerFunc() {
      if (count !== 0) {
     cell.innerHTML = count;
 
-    // Apply different colors based on count value
+   
     switch (count) {
       case 1:
         cell.classList.add('color1');
@@ -295,37 +296,36 @@ function timerFunc() {
     const index = row * width + col;
     return bombs.includes(index);
   }
-
   
-function toggleTheme() {
-  const body = document.body;
-  body.classList.toggle('dark-theme');
-  themeToggleBtn.innerText = body.classList.contains('dark-theme') ? '🌞' : '🌚';
+  function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('dark-theme');
+    themeToggleBtn.innerText = body.classList.contains('dark-theme') ? '🌞' : '🌚';
 
-  const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
-  saveThemePreference(theme);
-}
-
-function applyInitialTheme() {
-  const body = document.body;
-  const userPreference = localStorage.getItem('minesweeperTheme');
-
-  if (userPreference === 'dark') {
-    body.classList.add('dark-theme');
-    themeToggleBtn.innerText = '🌞';
+    const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+    saveThemePreference(theme);
   }
-}
-  applyInitialTheme();
 
-function saveThemePreference(theme) {
-  localStorage.setItem('minesweeperTheme', theme);
-}
+  function applyInitialTheme() {
+    const body = document.body;
+    const userPreference = localStorage.getItem('minesweeperTheme');
 
-themeToggleBtn.addEventListener('click', () => {
-  toggleTheme();
+    if (userPreference === 'dark') {
+      body.classList.add('dark-theme');
+      themeToggleBtn.innerText = '🌞';
+    }
+  }
+    applyInitialTheme();
 
-  const body = document.body;
-  
-});
+  function saveThemePreference(theme) {
+    localStorage.setItem('minesweeperTheme', theme);
+  }
+
+  themeToggleBtn.addEventListener('click', () => {
+    toggleTheme();
+
+    const body = document.body;
+    
+  });
 }
 
