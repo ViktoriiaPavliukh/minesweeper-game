@@ -239,6 +239,8 @@ function timerFunc() {
     if (!cell.classList.contains('flagged')) {
       cell.innerHTML = '💣';
       cell.classList.add('red');
+      minesRemaining--;
+      updateMineCount();
     } else {
       return;
     }
