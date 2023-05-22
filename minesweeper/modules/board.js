@@ -107,7 +107,7 @@ export function renderBoard(size, mines) {
   });
 
   levelHard.addEventListener('click', () => {
-    renderBoard('hard', 100);
+    renderBoard('hard', 50);
   });
 
   newGame.addEventListener('click', () => {
@@ -257,10 +257,29 @@ function timerFunc() {
     }
 
     const count = getMinesCount(row, col);
-    if (count !== 0) {
-      cell.innerHTML = count;
-      return;
+     if (count !== 0) {
+    cell.innerHTML = count;
+
+    // Apply different colors based on count value
+    switch (count) {
+      case 1:
+        cell.classList.add('color1');
+        break;
+      case 2:
+        cell.classList.add('color2');
+        break;
+      case 3:
+        cell.classList.add('color3');
+        break;
+      case 4:
+        cell.classList.add('color4');
+        break;  
+      default:
+        break;
     }
+
+    return;
+  }
 
     for (let x = -1; x <= 1; x++) {
       for (let y = -1; y <= 1; y++) {

@@ -47,6 +47,8 @@
   height: 30px;
   border: 3px inset white;
   cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
 }
 .cell:disabled {
   color: black;
@@ -116,4 +118,20 @@
   border: 3px inset var(--main-color);
   background-color: transparent;
   cursor: pointer;
+}
+
+.cell.color1{
+  color: blue;
+}
+
+.cell.color2{
+  color: yellow;
+}
+
+.cell.color3{
+  color: orangered;
+}
+
+.cell.color4{
+  color: red;
 }
