@@ -7,7 +7,6 @@
   justify-content: start;
   align-items: center;
   flex-direction: column;
-  background-color: rgb(255, 255, 255);
 }
 .minesweeper {
   display: flex;
@@ -88,6 +87,8 @@
   color: var(--main-color);
   border: 3px inset var(--main-color);
   background-color: transparent;
+  padding: 5px;
+  margin-bottom: 20px;
 }
 
 .button-restart {
@@ -98,4 +99,21 @@
 
 .mines-counter, .flags-counter {
   padding-top: 15px;
+  color: var(--main-color);
+}
+
+.dark-theme {
+  background-color: rgb(18, 36, 24);
+  color: #fff;
+}
+
+.dark-theme .minesweeper .cell {
+  border-color: #000;
+}
+
+.theme-toggle {
+  color: var(--main-color);
+  border: 3px inset var(--main-color);
+  background-color: transparent;
+  cursor: pointer;
 }

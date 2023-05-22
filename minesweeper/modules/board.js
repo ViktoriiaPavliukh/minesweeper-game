@@ -49,6 +49,8 @@ export function renderBoard(size, mines) {
   const cellsAmount = width * height;
   let startTime;
   let moves = 0;
+  const themeToggleBtn = document.createElement('button');
+
 
   container.className = 'container';
   header.className = 'header';
@@ -68,6 +70,8 @@ export function renderBoard(size, mines) {
   divTimer.className = 'timer';
   divTimer.innerText = '00:00';
   newGame.innerText = 'RESTART';
+  themeToggleBtn.className = 'theme-toggle';
+  themeToggleBtn.innerHTML = '🌚';
   document.body.appendChild(container);
   container.appendChild(header);
   container.appendChild(minesweeperWrapper);
@@ -78,7 +82,7 @@ export function renderBoard(size, mines) {
   header.appendChild(usedFlagsElem);
   header.appendChild(newGame);
   levelElem.append(levelEasy, levelNormal, levelHard);
-
+  header.appendChild(themeToggleBtn);
   
   updateMineCount();
   updateFlagCount();
@@ -236,7 +240,7 @@ function timerFunc() {
       cell.innerHTML = '💣';
       cell.classList.add('red');
     } else {
-      return; // Do nothing if the cell is flagged
+      return;
     }
     alert('Game over. Try again');
     clearInterval(timer);
@@ -270,4 +274,37 @@ function timerFunc() {
     const index = row * width + col;
     return bombs.includes(index);
   }
+
+  
+function toggleTheme() {
+  const body = document.body;
+  body.classList.toggle('dark-theme');
+  themeToggleBtn.innerText = body.classList.contains('dark-theme') ? '🌞' : '🌚';
+
+  const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+  saveThemePreference(theme);
 }
+
+function applyInitialTheme() {
+  const body = document.body;
+  const userPreference = localStorage.getItem('minesweeperTheme');
+
+  if (userPreference === 'dark') {
+    body.classList.add('dark-theme');
+    themeToggleBtn.innerText = '🌞';
+  }
+}
+  applyInitialTheme();
+
+function saveThemePreference(theme) {
+  localStorage.setItem('minesweeperTheme', theme);
+}
+
+themeToggleBtn.addEventListener('click', () => {
+  toggleTheme();
+
+  const body = document.body;
+  
+});
+}
+
