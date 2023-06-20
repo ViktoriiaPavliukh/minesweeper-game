@@ -1,0 +1,140 @@
+*{
+    box-sizing: border-box;
+} 
+:root {
+  --main-color: rgb(123, 160, 131);
+}
+
+.container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+}
+.minesweeper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: fit-content;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.minesweeper.board-easy {
+  width: 329px;
+}
+
+.minesweeper.board-medium {
+  width: 375px;
+}
+
+.minesweeper.board-medium .cell {
+  width: 25px;
+  height: 25px;
+}
+
+.minesweeper.board-hard {
+  width: 630px;
+}
+.minesweeper.board-hard .cell {
+  width: 25px;
+  height: 25px;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  width: 30px;
+  height: 30px;
+  border: 3px inset white;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+}
+.cell:disabled {
+  color: black;
+  opacity: 0.7;
+}
+.cell:hover {
+  background-color: green;
+}
+.cell.red {
+  background-color: red;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px inset var(--main-color);
+  width: 60px;
+  height: 38px;
+  color: var(--main-color);
+}
+
+.header {
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.level {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.button-level {
+  color: var(--main-color);
+  border: 3px inset var(--main-color);
+  background-color: transparent;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.button-restart {
+  color: var(--main-color);
+  border: 3px inset var(--main-color);
+  background-color: transparent;
+}
+
+.mines-counter, .flags-counter {
+  padding-top: 15px;
+  color: var(--main-color);
+}
+
+.dark-theme {
+  background-color: rgb(18, 36, 24);
+  color: #fff;
+}
+
+.dark-theme .minesweeper .cell {
+  border-color: #000;
+}
+
+.theme-toggle {
+  color: var(--main-color);
+  border: 3px inset var(--main-color);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.cell.color1{
+  color: blue;
+}
+
+.cell.color2{
+  color: yellow;
+}
+
+.cell.color3{
+  color: orangered;
+}
+
+.cell.color4{
+  color: red;
+}
